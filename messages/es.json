@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "services": "Servicios",
+    "portfolio": "Portafolio",
+    "about": "Sobre nosotros",
+    "partnership": "Asociación",
+    "blog": "Blog",
+    "contacts": "Contactos"
+  },
+  "runLine": "FULLSTACK-INNOVATIONS",
+  "hero": {
+    "title": "Desarrollamos sitios web que entregan resultados",
+    "description": "Creamos sitios web modernos que generan leads, ventas y confianza. Su sitio será amigable, rápido y listo para crecer",
+    "cta": "Contáctenos",
+    "offer": "Obtener oferta",
+    "scrollDown": "Desplazar hacia abajo",
+    "statsLabel": "Número de sitios desarrollados",
+    "statsValue": "200 +"
+  },
+  "header": {
+    "phone": "+(380) 63 682 6299",
+    "phones": [
+      { "flag": "🇺🇸", "number": "+1 (647) 283-2846" },
+      { "flag": "🇩🇪", "number": "+(380) 63 682 6299" }
+    ]
+  }
+}

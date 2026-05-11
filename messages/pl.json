@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "services": "Usługi",
+    "portfolio": "Portfolio",
+    "about": "O nas",
+    "partnership": "Partnerstwo",
+    "blog": "Blog",
+    "contacts": "Kontakty"
+  },
+  "runLine": "FULLSTACK-INNOVATIONS",
+  "hero": {
+    "title": "Tworzymy strony, które przynoszą rezultaty",
+    "description": "Tworzymy nowoczesne strony generujące leady, sprzedaż i zaufanie. Twoja strona będzie przyjazna, szybka i gotowa na rozwój",
+    "cta": "Skontaktuj się",
+    "offer": "Uzyskaj ofertę",
+    "scrollDown": "Przewiń w dół",
+    "statsLabel": "Liczba stworzonych stron",
+    "statsValue": "200 +"
+  },
+  "header": {
+    "phone": "+(380) 63 682 6299",
+    "phones": [
+      { "flag": "🇺🇸", "number": "+1 (647) 283-2846" },
+      { "flag": "🇩🇪", "number": "+(380) 63 682 6299" }
+    ]
+  }
+}

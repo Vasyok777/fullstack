@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "services": "Leistungen",
+    "portfolio": "Portfolio",
+    "about": "Über uns",
+    "partnership": "Partnerschaft",
+    "blog": "Blog",
+    "contacts": "Kontakte"
+  },
+  "runLine": "FULLSTACK-INNOVATIONS",
+  "hero": {
+    "title": "Wir entwickeln Websites, die Ergebnisse liefern",
+    "description": "Wir erstellen moderne Websites, die Leads, Verkäufe und Vertrauen generieren. Ihre Website wird benutzerfreundlich, schnell und wachstumsbereit sein",
+    "cta": "Kontakt aufnehmen",
+    "offer": "Angebot erhalten",
+    "scrollDown": "Nach unten scrollen",
+    "statsLabel": "Anzahl entwickelter Websites",
+    "statsValue": "200 +"
+  },
+  "header": {
+    "phone": "+(380) 63 682 6299",
+    "phones": [
+      { "flag": "🇺🇸", "number": "+1 (647) 283-2846" },
+      { "flag": "🇪🇸", "number": "+(380) 63 682 6299" }
+    ]
+  }
+}

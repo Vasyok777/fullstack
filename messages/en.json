@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About us",
+    "partnership": "Partnership",
+    "blog": "Blog",
+    "contacts": "Contacts"
+  },
+  "runLine": "FULLSTACK-INNOVATIONS",
+  "hero": {
+    "title": "Developing websites that deliver results",
+    "description": "We create modern websites that generate leads, sales, and trust. Your website will be user-friendly, fast, and ready for growth",
+    "cta": "Contact us",
+    "offer": "Get an offer",
+    "scrollDown": "Scroll down",
+    "statsLabel": "Number of websites developed",
+    "statsValue": "200 +"
+  },
+  "header": {
+    "phone": "+1 (647) 283-2846",
+    "phones": [
+      { "flag": "🇪🇸", "number": "+(380) 63 682 6299" },
+      { "flag": "🇩🇪", "number": "+(380) 63 682 6299" }
+    ]
+  }
+}

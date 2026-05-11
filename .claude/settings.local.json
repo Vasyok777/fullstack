@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(mkdir -p c:/Users/Vasyok/OneDrive/Desktop/project/fullstack/src/components/sections)",
+      "Bash(mv c:/Users/Vasyok/OneDrive/Desktop/project/fullstack/src/components/layout/run-line.tsx c:/Users/Vasyok/OneDrive/Desktop/project/fullstack/src/components/sections/run-line.tsx)",
+      "Bash(cp \"c:/Users/Vasyok/OneDrive/Desktop/project/fullstack/src/app/[locale]/globals.css\" \"c:/Users/Vasyok/OneDrive/Desktop/project/fullstack/src/app/globals.css\")",
+      "Bash(rm \"c:/Users/Vasyok/OneDrive/Desktop/project/fullstack/src/app/[locale]/globals.css\")",
+      "Bash(mkdir -p \"c:/Users/Vasyok/OneDrive/Desktop/project/fullstack/src/app/\\(root\\)/[locale]\")",
+      "Bash(cp -r \"c:/Users/Vasyok/OneDrive/Desktop/project/fullstack/src/app/[locale]/.\" \"c:/Users/Vasyok/OneDrive/Desktop/project/fullstack/src/app/\\(root\\)/[locale]/\")"
+    ]
+  }
+}
