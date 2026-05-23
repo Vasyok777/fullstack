@@ -40,13 +40,7 @@ export function ScrollDown({ text }: Props) {
             href="#sdp"
             textLength={circumference}
             lengthAdjust="spacing"
-            style={{
-              fontSize: 8.43,
-              fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-              fontWeight: 400,
-              fill: "#FFF",
-              textTransform: "uppercase",
-            }}
+            className="text-[8.43px] font-['Helvetica_Neue',Helvetica,Arial,sans-serif] font-normal fill-white uppercase"
           >
             {label}
           </textPath>

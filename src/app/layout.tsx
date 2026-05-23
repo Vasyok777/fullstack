@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { Montserrat, Russo_One, Manrope } from "next/font/google";
+import { Montserrat, Russo_One, Manrope, Zen_Dots } from "next/font/google";
 import { Header } from "@/components/layout/header";
+import { ScrollProvider } from "@/components/layout/scroll-provider";
+import "overlayscrollbars/overlayscrollbars.css";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -21,17 +23,35 @@ const manrope = Manrope({
   weight: ["400", "500", "600", "700"],
 });
 
+const zenDots = Zen_Dots({
+  variable: "--font-zen-dots",
+  subsets: ["latin"],
+  weight: "400",
+});
+
 export const metadata: Metadata = {
   title: "Fullstack Innovations",
   description: "Developing websites that deliver results",
+  icons: {
+    icon: "/fav.svg",
+  },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html className={`${montserrat.variable} ${russoOne.variable} ${manrope.variable} h-full antialiased`}>
+    <html
+      data-overlayscrollbars-initialize
+      className={`${montserrat.variable} ${russoOne.variable} ${manrope.variable} ${zenDots.variable} h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground">
-        <Header />
-        {children}
+        <ScrollProvider>
+          <Header />
+          {children}
+        </ScrollProvider>
       </body>
     </html>
   );

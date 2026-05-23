@@ -44,6 +44,7 @@
     height: 50px;
     background: linear-gradient(90deg, #d4af37 0%, #ffda63 100%);
     box-shadow: 0 5px 15px 0 rgba(255, 195, 0, 0.4);
+    border: 1px solid transparent;
     color: #0c0c0c;
     font-family: var(--font-montserrat), Montserrat, sans-serif;
     font-size: 15px;
@@ -52,17 +53,28 @@
     white-space: nowrap;
     cursor: pointer;
     transition:
-      box-shadow 0.3s ease,
-      opacity 0.2s ease;
+      color 0.25s ease,
+      background 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
   }
   .cta-btn:hover {
-    box-shadow: 0 8px 25px 0 rgba(255, 195, 0, 0.6);
+    background-image: none;
+    background-color: transparent;
+    border-color: #ffffff;
+    color: #ffffff;
+    box-shadow: none;
   }
   .cta-btn:active {
-    opacity: 0.9;
-    box-shadow: 0 3px 10px 0 rgba(255, 195, 0, 0.3);
+    opacity: 0.85;
   }
 
+  @media (max-width: 767px) {
+    .cta-btn {
+      font-size: 14px;
+      gap: 12px;
+    }
+  }
   @media (min-width: 768px) {
     .cta-btn {
       height: 55px;
@@ -70,9 +82,25 @@
   }
   @media (min-width: 1024px) {
     .cta-btn {
-      width: 232px;
+      min-width: 232px;
       height: 60px;
     }
+  }
+
+  /* outlined (inverted) CTA variant */
+  .cta-btn.cta-btn-outline {
+    background-image: none;
+    background-color: transparent;
+    border-color: #ffffff;
+    color: #ffffff;
+    box-shadow: none;
+  }
+  .cta-btn.cta-btn-outline:hover {
+    background-image: linear-gradient(90deg, #d4af37 0%, #ffda63 100%);
+    background-color: transparent;
+    border-color: transparent;
+    color: #0c0c0c;
+    box-shadow: 0 5px 15px 0 rgba(255, 195, 0, 0.4);
   }
 
   /* Stats counter — mobile first */
@@ -205,6 +233,50 @@
   }
 }
 
+/* Reset Swiper slide background */
+.swiper-slide {
+  background: transparent;
+}
+
+/* Shared swiper pagination */
+.reviews-dots .swiper-pagination-bullet,
+.partnership-dots .swiper-pagination-bullet,
+.portfolio-dots .swiper-pagination-bullet,
+.benefits-dots .swiper-pagination-bullet {
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 1);
+  opacity: 1;
+  border-radius: 9999px;
+  transition: all 0.2s;
+}
+.reviews-dots .swiper-pagination-bullet-active,
+.partnership-dots .swiper-pagination-bullet-active,
+.portfolio-dots .swiper-pagination-bullet-active,
+.benefits-dots .swiper-pagination-bullet-active {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: #d4af37;
+  border-radius: 9999px;
+}
+
+@keyframes sonar-ping {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.45;
+  }
+  80% {
+    transform: scale(1.35);
+    opacity: 0.05;
+  }
+  100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -275,6 +347,30 @@ html,
 body {
   background-color: var(--background);
   color: var(--foreground);
+}
+
+/* Hide native scrollbar immediately so overlayscrollbars appears without a flash */
+html {
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* overlayscrollbars custom theme */
+.os-scrollbar {
+  --os-size: 6px;
+  --os-padding-perpendicular: 0;
+  --os-padding-axis: 0;
+  --os-track-border-radius: 9999px;
+  --os-track-bg: #1a1a1a;
+  --os-track-bg-hover: #1a1a1a;
+  --os-track-bg-active: #1a1a1a;
+  --os-handle-border-radius: 9999px;
+  --os-handle-bg: #d4af37;
+  --os-handle-bg-hover: #ffda63;
+  --os-handle-bg-active: #d4af37;
+  --os-handle-min-size: 40px;
 }
 
 /* Prevent next/image opacity flash on navigation */

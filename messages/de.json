@@ -9,19 +9,136 @@
   },
   "runLine": "FULLSTACK-INNOVATIONS",
   "hero": {
-    "title": "Wir entwickeln Websites, die Ergebnisse liefern",
-    "description": "Wir erstellen moderne Websites, die Leads, Verkäufe und Vertrauen generieren. Ihre Website wird benutzerfreundlich, schnell und wachstumsbereit sein",
-    "cta": "Kontakt aufnehmen",
+    "title": "Wir erstellen Websites, die zu einem starken Verkaufswerkzeug werden",
+    "description": "Wir erstellen Websites, die Ihre Dienstleistungen professionell präsentieren, Vertrauen aufbauen und Menschen helfen, schnell zu verstehen, warum sie sich an Sie wenden sollten.",
+    "cta": "Kontaktieren Sie uns",
     "offer": "Angebot erhalten",
     "scrollDown": "Nach unten scrollen",
     "statsLabel": "Anzahl entwickelter Websites",
     "statsValue": "200 +"
   },
+  "footer": {
+    "copyright": "© 2026 «FULLSTACK-INNOVATIONS» Website-Entwicklung",
+    "col1Title": "Navigation",
+    "col2Title": "Leistungen",
+    "col3Title": "Entwicklung",
+    "col4Title": "Zusätzliche Dienste",
+    "col5Title": "Nützliche Links",
+    "s1": "Design",
+    "s2": "Entwicklung",
+    "s3": "Marketing",
+    "s4": "Support",
+    "d1": "Online-Shop",
+    "d2": "Unternehmenswebsite",
+    "d3": "Landing Page",
+    "d4": "Business-Website",
+    "d5": "Quiz-Website",
+    "a1": "Technische Verbesserungen",
+    "a2": "Website-Beschleunigung",
+    "a3": "HTTPS-Migration",
+    "a4": "Virenbereinigung",
+    "a5": "Synchronisation mit 1C",
+    "u1": "Datenschutzrichtlinie",
+    "u2": "Nutzungsbedingungen",
+    "u3": "Sitemap"
+  },
+  "services": {
+    "sectionLabel": "Leistungen",
+    "item1Title": "Landing Page",
+    "item1Desc": "Eine Website mit einfacher Struktur, auf der alle Informationen auf einer Seite zu finden sind. Geeignet für alle, die über sich oder ihr Produkt/ihre Dienstleistungen informieren möchten.",
+    "item1Terms": "Laufzeit — 3-7 Tage",
+    "item2Title": "Unternehmenswebsite",
+    "item2Desc": "Eine mehrseitige Website mit komplexer Struktur, die das Unternehmen, seine Leistungen, das Team und Erfolge präsentiert. Geeignet für Unternehmen, die ihr Image stärken und Kunden gewinnen möchten.",
+    "item2Terms": "Laufzeit — 12-20 Tage",
+    "item3Title": "Online-Shop",
+    "item3Desc": "Eine mehrseitige Website für den Online-Verkauf mit Katalog, Produktkarten, Warenkorb und Zahlung. Geeignet für Unternehmen, die Produkte direkt über das Internet verkaufen möchten.",
+    "item3Terms": "Laufzeit — 25-45 Tage",
+    "item4Title": "Lieferwebsite",
+    "item4Desc": "Eine mehrseitige Website mit Bestell- und Lieferverfolgungsfunktion für Waren oder Dienstleistungen. Geeignet für Unternehmen mit Kurier- oder Servicedienstleistungen.",
+    "item4Terms": "Laufzeit — 7-15 Tage",
+    "item5Title": "Business-Website",
+    "item5Desc": "Eine mehrseitige Website zur Präsentation Ihres Unternehmens, seiner Leistungen und Kontakte, mit Fokus auf Kundengewinnung. Geeignet für Unternehmen jeder Größe.",
+    "item5Terms": "Laufzeit — 10-20 Tage",
+    "item6Title": "Mobile Anwendungen",
+    "item6Desc": "Softwareprodukte für iOS und Android mit intuitivem Interface und komfortabler Funktionalität. Geeignet für Unternehmen, die ihren Nutzern immer zur Hand sein möchten.",
+    "item6Terms": "Laufzeit — 45-120 Tage"
+  },
+  "reviews": {
+    "title": "Bewertungen"
+  },
+  "company": {
+    "title": "Fullstack Innovations — eine einzigartige Agentur",
+    "desc1": "Wir sind ein Team von Web-Entwicklungs- und Innovationsprofis, die Ihre Konzepte in erfolgreiche und profitable Projekte umwandeln. Seit Ende 2021 haben wir bereits über 75 erfolgreiche Websites realisiert.",
+    "desc2": "Unser Ansatz basiert auf einem individuellen Ansatz für jeden Kunden und stellt die Entwicklung moderner, produktiver und einzigartiger Web-Lösungen sicher.",
+    "cta": "Erzählen Sie uns von Ihrem Projekt",
+    "stat1Value": "200+",
+    "stat1Label": "abgeschlossene Projekte",
+    "stat2Value": "12",
+    "stat2Label": "Entwickler",
+    "stat3Value": "5",
+    "stat3Label": "Jahre Erfahrung",
+    "stat4Value": "99%",
+    "stat4Label": "zufriedene Kunden"
+  },
+  "clients": {
+    "title": "Kunden aus aller Welt",
+    "getOffer": "Angebot erhalten"
+  },
+  "contactForm": {
+    "title": "Kontaktieren Sie uns",
+    "nameLabel": "Ihr Name",
+    "emailLabel": "Ihre E-Mail-Adresse",
+    "phoneLabel": "Ihre Telefonnummer",
+    "messageLabel": "Schreiben Sie alles, was Sie interessiert",
+    "privacyText": "Ich akzeptiere die",
+    "privacyLink": "Datenschutzrichtlinie",
+    "channelLabel": "Wählen Sie eine Kommunikationsart",
+    "submit": "Anfrage absenden",
+    "success": "Danke! Ihre Nachricht wurde erfolgreich gesendet.",
+    "errorRequired": "Bitte füllen Sie dieses Feld aus",
+    "errorEmail": "Geben Sie eine gültige E-Mail-Adresse ein",
+    "chTelegram": "Telegram",
+    "chWhatsapp": "WhatsApp",
+    "chViber": "Viber",
+    "chPhone": "Telefon",
+    "chEmail": "E-Mail"
+  },
+  "benefits": {
+    "title": "Warum es sich besonders lohnt, mit uns zu arbeiten",
+    "cta": "Erzählen Sie uns von Ihrem Projekt",
+    "card1Title": "Website mit 3-monatiger Ratenzahlung",
+    "card1Desc": "Erhalten Sie Ihre Website jetzt und zahlen Sie in Raten — schnell, bequem und ohne Aufpreis.",
+    "card2Title": "Optimierte schnelle Website",
+    "card2Desc": "Seiten laden in Sekunden, alles funktioniert reibungslos und komfortabel.",
+    "card3Title": "Website-Support",
+    "card3Desc": "3 Monate kostenloser Support + ständige 24/7-Kommunikation danach."
+  },
+  "portfolio": {
+    "title": "Unser Portfolio",
+    "cta": "Erzählen Sie uns von Ihrem Projekt",
+    "visitSite": "Website besuchen"
+  },
+  "partnership": {
+    "intro1": "Wir sind offen für Partnerschaftsmöglichkeiten mit gleichgesinnten Unternehmen oder Einzelpersonen.",
+    "intro2": "Daher kann eine Partnerschaft mit uns interessant sein für:",
+    "item1Title": "Startup-Gründer",
+    "item1Desc": "Die ein technisches Team benötigen, um ein Produkt zu starten und ein Unternehmen auf der Grundlage strategischer Zusammenarbeit aufzubauen.",
+    "item2Title": "Geschäftsinhaber",
+    "item2Desc": "Die unser Know-how benötigen, um den Umsatz zu steigern und ihre eigenen Möglichkeiten zu erweitern.",
+    "item3Title": "Affiliate-Verkäufer",
+    "item3Desc": "Die daran interessiert sind, unsere Dienstleistungen zu verkaufen und stabile % aus Projekten zu erhalten."
+  },
   "header": {
     "phone": "+(380) 63 682 6299",
     "phones": [
-      { "flag": "🇺🇸", "number": "+1 (647) 283-2846" },
-      { "flag": "🇪🇸", "number": "+(380) 63 682 6299" }
+      {
+        "flag": "🇺🇸",
+        "number": "+1 (647) 283-2846"
+      },
+      {
+        "flag": "🇪🇸",
+        "number": "+(380) 63 682 6299"
+      }
     ]
   }
 }

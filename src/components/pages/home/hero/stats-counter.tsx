@@ -53,8 +53,8 @@ export function StatsCounter({ value, suffix = "", label }: Props) {
       <p className="stats-counter__label">{label}</p>
       <p
         ref={numberRef}
-        className="stats-counter__value"
-        style={{ minWidth: `${String(value).length}ch` }}
+        className="stats-counter__value min-w-(--cw)"
+        style={{ '--cw': `${String(value).length}ch` } as React.CSSProperties}
       >
         0{suffix}
       </p>

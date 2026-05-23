@@ -19,10 +19,7 @@ export async function Hero() {
           height={200}
           priority
           unoptimized
-          style={{
-            width: "auto",
-            height: "auto",
-          }}
+          className="w-auto h-auto"
         />
       </div>
 
@@ -53,23 +50,12 @@ export async function Hero() {
 
           {/* Left column — текст */}
           <div className="order-2 md:order-1 relative flex flex-col justify-center pt-8 md:pt-0">
-            <h1
-              className="font-display uppercase text-[22px] md:text-[35px] lg:text-[60px] mb-2 md:mb-3 lg:mb-4 leading-[normal]"
-              style={{ color: "var(--color-gold)", fontWeight: 400 }}
-            >
+            <h1 className="font-display uppercase text-[22px] md:text-[35px] lg:text-[60px] mb-2 md:mb-3 lg:mb-4 leading-[normal] text-[#D4AF37] font-normal">
               {t("title")}
             </h1>
 
             <div className="flex items-start gap-2 md:block mb-4 md:mb-6 lg:mb-0">
-              <p
-                className="text-[12px] md:text-[14px] lg:text-[16px] lg:mb-9"
-                style={{
-                  color: "var(--color-text-body)",
-                  fontFamily: "var(--font-montserrat), Montserrat, sans-serif",
-                  fontWeight: 500,
-                  lineHeight: "130%",
-                }}
-              >
+              <p className="text-[12px] md:text-[14px] max-w-[550px] lg:text-[16px] lg:mb-9 text-[#D9D9D9] font-sans font-medium leading-[130%]">
                 {t("description")}
               </p>
               <div className="shrink-0 md:hidden">

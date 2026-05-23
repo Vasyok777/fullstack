@@ -7,7 +7,15 @@
       "Bash(cp \"c:/Users/Vasyok/OneDrive/Desktop/project/fullstack/src/app/[locale]/globals.css\" \"c:/Users/Vasyok/OneDrive/Desktop/project/fullstack/src/app/globals.css\")",
       "Bash(rm \"c:/Users/Vasyok/OneDrive/Desktop/project/fullstack/src/app/[locale]/globals.css\")",
       "Bash(mkdir -p \"c:/Users/Vasyok/OneDrive/Desktop/project/fullstack/src/app/\\(root\\)/[locale]\")",
-      "Bash(cp -r \"c:/Users/Vasyok/OneDrive/Desktop/project/fullstack/src/app/[locale]/.\" \"c:/Users/Vasyok/OneDrive/Desktop/project/fullstack/src/app/\\(root\\)/[locale]/\")"
+      "Bash(cp -r \"c:/Users/Vasyok/OneDrive/Desktop/project/fullstack/src/app/[locale]/.\" \"c:/Users/Vasyok/OneDrive/Desktop/project/fullstack/src/app/\\(root\\)/[locale]/\")",
+      "Bash(findstr /r /s \"swiper\\\\|embla\\\\|splide\\\\|keen-slider\\\\|glide\" package.json)",
+      "Bash(npm install *)",
+      "Bash(dir \"c:\\\\Users\\\\Vasyok\\\\OneDrive\\\\Desktop\\\\project\\\\fullstack\\\\public\")",
+      "Bash(dir \"c:\\\\Users\\\\Vasyok\\\\OneDrive\\\\Desktop\\\\project\\\\fullstack\\\\public\\\\portfolio\")",
+      "Bash(node -e \"const p = require\\('./package.json'\\); console.log\\(p.dependencies.swiper\\)\")",
+      "Bash(node -e \"const f=require\\('./messages/ua.json'\\); console.log\\(JSON.stringify\\(f.services, null, 2\\)\\)\")",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"const f=require\\('./messages/ua.json'\\); console.log\\(JSON.stringify\\(f.benefits, null, 2\\)\\)\")"
     ]
   }
 }

@@ -9,19 +9,136 @@
   },
   "runLine": "FULLSTACK-INNOVATIONS",
   "hero": {
-    "title": "Desarrollamos sitios web que entregan resultados",
-    "description": "Creamos sitios web modernos que generan leads, ventas y confianza. Su sitio será amigable, rápido y listo para crecer",
+    "title": "Creamos sitios web que se convierten en una poderosa herramienta de ventas",
+    "description": "Creamos sitios web que presentan sus servicios de forma profesional, generan confianza y ayudan a las personas a entender rápidamente por qué elegirle a usted.",
     "cta": "Contáctenos",
     "offer": "Obtener oferta",
     "scrollDown": "Desplazar hacia abajo",
     "statsLabel": "Número de sitios desarrollados",
     "statsValue": "200 +"
   },
+  "footer": {
+    "copyright": "© 2026 «FULLSTACK-INNOVATIONS» Desarrollo web",
+    "col1Title": "Navegación",
+    "col2Title": "Servicios",
+    "col3Title": "Desarrollo",
+    "col4Title": "Servicios adicionales",
+    "col5Title": "Enlaces útiles",
+    "s1": "Diseño",
+    "s2": "Desarrollo",
+    "s3": "Marketing",
+    "s4": "Soporte",
+    "d1": "Tienda en línea",
+    "d2": "Sitio corporativo",
+    "d3": "Landing Page",
+    "d4": "Sitio de negocios",
+    "d5": "Quiz",
+    "a1": "Mejoras técnicas",
+    "a2": "Aceleración del sitio",
+    "a3": "Migración a HTTPS",
+    "a4": "Limpieza de virus",
+    "a5": "Sincronización con 1C",
+    "u1": "Política de privacidad",
+    "u2": "Términos de uso",
+    "u3": "Mapa del sitio"
+  },
+  "services": {
+    "sectionLabel": "Servicios",
+    "item1Title": "Landing Page",
+    "item1Desc": "Un sitio web con una estructura simple donde toda la información está en una sola página. Ideal para quienes desean presentarse a sí mismos o su producto/servicio.",
+    "item1Terms": "Plazo — 3-7 días",
+    "item2Title": "Sitio corporativo",
+    "item2Desc": "Un sitio web de múltiples páginas con estructura compleja que presenta la empresa, sus servicios, equipo y logros. Ideal para empresas que buscan fortalecer su imagen y atraer clientes.",
+    "item2Terms": "Plazo — 12-20 días",
+    "item3Title": "Tienda en línea",
+    "item3Desc": "Sitio web de múltiples páginas para vender productos en línea con catálogo, fichas de producto, carrito y pago. Ideal para negocios que quieren vender directamente por internet.",
+    "item3Terms": "Plazo — 25-45 días",
+    "item4Title": "Sitio de entregas",
+    "item4Desc": "Sitio web de múltiples páginas con funcionalidad para pedidos y seguimiento de entregas. Ideal para empresas de mensajería o servicios de entrega.",
+    "item4Terms": "Plazo — 7-15 días",
+    "item5Title": "Sitio de negocios",
+    "item5Desc": "Sitio web de múltiples páginas para presentar su negocio, servicios y contactos enfocado en atraer clientes y socios. Adecuado para empresas de cualquier tamaño.",
+    "item5Terms": "Plazo — 10-20 días",
+    "item6Title": "Aplicaciones móviles",
+    "item6Desc": "Productos de software para iOS y Android con interfaz intuitiva y funcionalidad conveniente. Ideal para negocios que quieren estar siempre a mano para sus usuarios.",
+    "item6Terms": "Plazo — 45-120 días"
+  },
+  "reviews": {
+    "title": "Reseñas"
+  },
+  "company": {
+    "title": "Fullstack Innovations — una agencia única",
+    "desc1": "Somos un equipo de profesionales en desarrollo web e innovación listos para convertir sus conceptos en proyectos exitosos y rentables. Desde finales de 2021, ya hemos implementado más de 75 sitios web exitosos.",
+    "desc2": "Nuestro enfoque se basa en un tratamiento individual para cada cliente, garantizando el desarrollo de soluciones web modernas, productivas y únicas.",
+    "cta": "Cuéntenos sobre su proyecto",
+    "stat1Value": "200+",
+    "stat1Label": "proyectos completados",
+    "stat2Value": "12",
+    "stat2Label": "desarrolladores",
+    "stat3Value": "5",
+    "stat3Label": "años de experiencia",
+    "stat4Value": "99%",
+    "stat4Label": "clientes satisfechos"
+  },
+  "clients": {
+    "title": "Clientes de todo el mundo",
+    "getOffer": "Obtener oferta"
+  },
+  "contactForm": {
+    "title": "Contáctenos",
+    "nameLabel": "Su nombre",
+    "emailLabel": "Su dirección de correo electrónico",
+    "phoneLabel": "Su número de teléfono",
+    "messageLabel": "Escriba todo lo que le interese",
+    "privacyText": "Acepto la",
+    "privacyLink": "Política de privacidad",
+    "channelLabel": "Elija una forma conveniente de comunicarse",
+    "submit": "Enviar solicitud",
+    "success": "¡Gracias! Su mensaje ha sido enviado exitosamente.",
+    "errorRequired": "Rellene este campo",
+    "errorEmail": "Ingrese una dirección de correo válida",
+    "chTelegram": "Telegram",
+    "chWhatsapp": "WhatsApp",
+    "chViber": "Viber",
+    "chPhone": "Teléfono",
+    "chEmail": "E-mail"
+  },
+  "benefits": {
+    "title": "Por qué es especialmente rentable trabajar con nosotros",
+    "cta": "Cuéntanos sobre tu proyecto",
+    "card1Title": "Sitio web con plan de 3 cuotas",
+    "card1Desc": "Obtén tu sitio web ahora, paga en cuotas — rápido, conveniente y sin sobrecostos.",
+    "card2Title": "Sitio web optimizado y rápido",
+    "card2Desc": "Las páginas cargan en segundos, todo funciona sin problemas y de forma cómoda.",
+    "card3Title": "Soporte del sitio web",
+    "card3Desc": "3 meses de soporte gratuito + comunicación 24/7 continua después."
+  },
+  "portfolio": {
+    "title": "Nuestro portfolio",
+    "cta": "Cuéntenos sobre su proyecto",
+    "visitSite": "Ver sitio"
+  },
+  "partnership": {
+    "intro1": "Estamos abiertos a oportunidades de asociación con empresas o personas afines.",
+    "intro2": "Por lo tanto, como podemos ver, una asociación con nosotros puede ser interesante para:",
+    "item1Title": "Fundadores de startups",
+    "item1Desc": "Quienes necesitan un equipo técnico para lanzar un producto y desarrollar un negocio sobre la base de la cooperación estratégica.",
+    "item2Title": "Propietarios de negocios",
+    "item2Desc": "Quienes necesitan nuestra experiencia para impulsar las ventas y expandir sus propias capacidades.",
+    "item3Title": "Vendedores afiliados",
+    "item3Desc": "Quienes están interesados en vender nuestros servicios y recibir un % estable de los proyectos."
+  },
   "header": {
     "phone": "+(380) 63 682 6299",
     "phones": [
-      { "flag": "🇺🇸", "number": "+1 (647) 283-2846" },
-      { "flag": "🇩🇪", "number": "+(380) 63 682 6299" }
+      {
+        "flag": "🇺🇸",
+        "number": "+1 (647) 283-2846"
+      },
+      {
+        "flag": "🇩🇪",
+        "number": "+(380) 63 682 6299"
+      }
     ]
   }
 }

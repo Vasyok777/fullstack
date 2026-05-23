@@ -9,19 +9,136 @@
   },
   "runLine": "FULLSTACK-INNOVATIONS",
   "hero": {
-    "title": "Developing websites that deliver results",
-    "description": "We create modern websites that generate leads, sales, and trust. Your website will be user-friendly, fast, and ready for growth",
+    "title": "We create websites that become a powerful sales tool",
+    "description": "We build websites that professionally present your services, build trust, and help people quickly understand why they should choose you.",
     "cta": "Contact us",
     "offer": "Get an offer",
     "scrollDown": "Scroll down",
     "statsLabel": "Number of websites developed",
     "statsValue": "200 +"
   },
+  "footer": {
+    "copyright": "© 2026 «FULLSTACK-INNOVATIONS» Website development",
+    "col1Title": "Navigation",
+    "col2Title": "Services",
+    "col3Title": "Development",
+    "col4Title": "Additional services",
+    "col5Title": "Useful links",
+    "s1": "Design",
+    "s2": "Development",
+    "s3": "Marketing",
+    "s4": "Support",
+    "d1": "Online store",
+    "d2": "Corporate site",
+    "d3": "Landing Page",
+    "d4": "Business site",
+    "d5": "Quiz site",
+    "a1": "Technical improvements",
+    "a2": "Site acceleration",
+    "a3": "Migrating your site to HTTPS",
+    "a4": "Virus cleaning",
+    "a5": "Synchronization with 1C",
+    "u1": "Privacy Policy",
+    "u2": "Terms of use",
+    "u3": "Sitemap"
+  },
+  "services": {
+    "sectionLabel": "Services",
+    "item1Title": "Landing Page",
+    "item1Desc": "A website with a simple structure, where all information is located on one page. Suitable for those who want to tell about themselves or their product/services.",
+    "item1Terms": "Terms — 3-7 days",
+    "item2Title": "Corporate Site",
+    "item2Desc": "A multi-page website with a complex structure that presents the company, its services, team, and achievements. Suitable for businesses seeking to strengthen their image, attract customers and partners, and communicate effectively online.",
+    "item2Terms": "Terms — 12-20 days",
+    "item3Title": "Online Store",
+    "item3Desc": "A multi-page website for selling goods online, with a catalog, product cards, shopping cart, and payment. Suitable for businesses that want to sell their products directly through the web.",
+    "item3Terms": "Terms — 25-45 days",
+    "item4Title": "Delivery Website",
+    "item4Desc": "A multi-page website with functionality for ordering and tracking the delivery of goods or services. Suitable for companies that provide courier or service delivery.",
+    "item4Terms": "Terms — 7-15 days",
+    "item5Title": "Business Website",
+    "item5Desc": "A multi-page website for presenting your business, its services, and contacts, with a focus on attracting customers and partners. Suitable for companies of any size.",
+    "item5Terms": "Terms — 10-20 days",
+    "item6Title": "Mobile Applications",
+    "item6Desc": "Software products for iOS and Android with an intuitive interface and convenient functionality. Suitable for businesses and services that want to be always at hand for users.",
+    "item6Terms": "Terms — 45-120 days"
+  },
+  "reviews": {
+    "title": "Reviews"
+  },
+  "company": {
+    "title": "Fullstack Innovations — this is a unique agency",
+    "desc1": "We are a team of web development and innovation professionals ready to turn your concepts into successful and profitable projects. Since the end of 2021, we have already implemented over 75 successful websites, which testifies to our high level of expertise and professionalism.",
+    "desc2": "Our approach is based on an individual approach to each client, ensuring the development of modern, productive and unique web solutions. We clearly take into account the latest trends and industry requirements to give your project a competitive advantage.",
+    "cta": "Tell us about your project",
+    "stat1Value": "200+",
+    "stat1Label": "completed projects",
+    "stat2Value": "12",
+    "stat2Label": "developers",
+    "stat3Value": "5",
+    "stat3Label": "years of experience",
+    "stat4Value": "99%",
+    "stat4Label": "satisfied customers"
+  },
+  "clients": {
+    "title": "Clients from all over the world",
+    "getOffer": "Get an offer"
+  },
+  "contactForm": {
+    "title": "Contact us",
+    "nameLabel": "Your name",
+    "emailLabel": "Your e-mail address",
+    "phoneLabel": "Your phone number",
+    "messageLabel": "Write down everything that interests you",
+    "privacyText": "I accept",
+    "privacyLink": "Privacy Policy",
+    "channelLabel": "Choose a convenient way to communicate",
+    "submit": "Submit an application",
+    "success": "Thank you! Your message has been sent successfully.",
+    "errorRequired": "Fill in the required field",
+    "errorEmail": "Enter a valid email address",
+    "chTelegram": "Telegram",
+    "chWhatsapp": "WhatsApp",
+    "chViber": "Viber",
+    "chPhone": "Phone",
+    "chEmail": "E-mail"
+  },
+  "benefits": {
+    "title": "Why it is especially profitable to work with us",
+    "cta": "Tell us about your project",
+    "card1Title": "Website with 3-month installment plan",
+    "card1Desc": "Get your website now, pay in installments — fast, convenient, and without overpaying.",
+    "card2Title": "Optimized fast website",
+    "card2Desc": "Pages load in a matter of seconds, everything works smoothly and conveniently.",
+    "card3Title": "Website support",
+    "card3Desc": "We provide 3 months of free support + ongoing 24/7 communication thereafter."
+  },
+  "portfolio": {
+    "title": "Our Portfolio",
+    "cta": "Tell us about your project",
+    "visitSite": "View site"
+  },
+  "partnership": {
+    "intro1": "We are open to partnership opportunities with like-minded companies or individuals.",
+    "intro2": "So, as we can see, partnership with us may be interesting for:",
+    "item1Title": "Startup Founders",
+    "item1Desc": "Who needs a technical team to launch a product and develop a business on the basis of strategic cooperation.",
+    "item2Title": "Business Owners",
+    "item2Desc": "Who needs our expertise to boost sales and expand their own capabilities.",
+    "item3Title": "Affiliated Sellers",
+    "item3Desc": "Who is interested in selling our services and receiving stable % from projects."
+  },
   "header": {
     "phone": "+1 (647) 283-2846",
     "phones": [
-      { "flag": "🇪🇸", "number": "+(380) 63 682 6299" },
-      { "flag": "🇩🇪", "number": "+(380) 63 682 6299" }
+      {
+        "flag": "🇪🇸",
+        "number": "+(380) 63 682 6299"
+      },
+      {
+        "flag": "🇩🇪",
+        "number": "+(380) 63 682 6299"
+      }
     ]
   }
 }

@@ -9,19 +9,136 @@
   },
   "runLine": "FULLSTACK-INNOVATIONS",
   "hero": {
-    "title": "Tworzymy strony, które przynoszą rezultaty",
-    "description": "Tworzymy nowoczesne strony generujące leady, sprzedaż i zaufanie. Twoja strona będzie przyjazna, szybka i gotowa na rozwój",
-    "cta": "Skontaktuj się",
+    "title": "Tworzymy strony, które stają się potężnym narzędziem sprzedaży",
+    "description": "Tworzymy strony internetowe, które profesjonalnie prezentują Twoje usługi, budują zaufanie i pomagają ludziom szybko zrozumieć, dlaczego warto się z Tobą skontaktować.",
+    "cta": "Skontaktuj się z nami",
     "offer": "Uzyskaj ofertę",
     "scrollDown": "Przewiń w dół",
     "statsLabel": "Liczba stworzonych stron",
     "statsValue": "200 +"
   },
+  "footer": {
+    "copyright": "© 2026 «FULLSTACK-INNOVATIONS» Tworzenie stron internetowych",
+    "col1Title": "Nawigacja",
+    "col2Title": "Usługi",
+    "col3Title": "Tworzenie stron",
+    "col4Title": "Dodatkowe usługi",
+    "col5Title": "Przydatne linki",
+    "s1": "Design",
+    "s2": "Tworzenie",
+    "s3": "Marketing",
+    "s4": "Wsparcie",
+    "d1": "Sklep internetowy",
+    "d2": "Strona korporacyjna",
+    "d3": "Landing Page",
+    "d4": "Strona biznesowa",
+    "d5": "Quiz",
+    "a1": "Ulepszenia techniczne",
+    "a2": "Przyspieszenie strony",
+    "a3": "Migracja na HTTPS",
+    "a4": "Usuwanie wirusów",
+    "a5": "Synchronizacja z 1C",
+    "u1": "Polityka prywatności",
+    "u2": "Warunki użytkowania",
+    "u3": "Mapa strony"
+  },
+  "services": {
+    "sectionLabel": "Usługi",
+    "item1Title": "Landing Page",
+    "item1Desc": "Strona z prostą strukturą, gdzie wszystkie informacje znajdują się na jednej stronie. Odpowiednia dla tych, którzy chcą opowiedzieć o sobie lub swoim produkcie/usługach.",
+    "item1Terms": "Termin — 3-7 dni",
+    "item2Title": "Strona korporacyjna",
+    "item2Desc": "Wielostronicowa witryna o złożonej strukturze, prezentująca firmę, jej usługi, zespół i osiągnięcia. Odpowiednia dla firm chcących wzmocnić wizerunek i przyciągnąć klientów.",
+    "item2Terms": "Termin — 12-20 dni",
+    "item3Title": "Sklep internetowy",
+    "item3Desc": "Wielostronicowa witryna do sprzedaży online z katalogiem, kartami produktów, koszykiem i płatnościami. Odpowiednia dla firm sprzedających przez internet.",
+    "item3Terms": "Termin — 25-45 dni",
+    "item4Title": "Strona dostawcza",
+    "item4Desc": "Wielostronicowa witryna z funkcjonalnością zamawiania i śledzenia dostawy towarów lub usług. Odpowiednia dla firm kurierskich i serwisowych.",
+    "item4Terms": "Termin — 7-15 dni",
+    "item5Title": "Strona biznesowa",
+    "item5Desc": "Wielostronicowa witryna do prezentacji firmy, jej usług i kontaktów, skupiona na przyciąganiu klientów i partnerów. Odpowiednia dla firm każdej wielkości.",
+    "item5Terms": "Termin — 10-20 dni",
+    "item6Title": "Aplikacje mobilne",
+    "item6Desc": "Produkty software'owe dla iOS i Android z intuicyjnym interfejsem i wygodną funkcjonalnością. Odpowiednie dla firm chcących być zawsze pod ręką użytkowników.",
+    "item6Terms": "Termin — 45-120 dni"
+  },
+  "reviews": {
+    "title": "Recenzje"
+  },
+  "company": {
+    "title": "Fullstack Innovations — to wyjątkowa agencja",
+    "desc1": "Jesteśmy zespołem specjalistów ds. tworzenia stron internetowych i innowacji, gotowych przekształcić Twoje koncepcje w udane i dochodowe projekty. Od końca 2021 roku zrealizowaliśmy już ponad 75 udanych stron internetowych.",
+    "desc2": "Nasze podejście opiera się na indywidualnym podejściu do każdego klienta, zapewniając tworzenie nowoczesnych, produktywnych i unikalnych rozwiązań webowych.",
+    "cta": "Opowiedz nam o swoim projekcie",
+    "stat1Value": "200+",
+    "stat1Label": "ukończonych projektów",
+    "stat2Value": "12",
+    "stat2Label": "deweloperów",
+    "stat3Value": "5",
+    "stat3Label": "lat doświadczenia",
+    "stat4Value": "99%",
+    "stat4Label": "zadowolonych klientów"
+  },
+  "clients": {
+    "title": "Klienci z całego świata",
+    "getOffer": "Uzyskaj ofertę"
+  },
+  "contactForm": {
+    "title": "Skontaktuj się z nami",
+    "nameLabel": "Twoje imię",
+    "emailLabel": "Twój adres e-mail",
+    "phoneLabel": "Twój numer telefonu",
+    "messageLabel": "Napisz wszystko, co Cię interesuje",
+    "privacyText": "Akceptuję",
+    "privacyLink": "Politykę prywatności",
+    "channelLabel": "Wybierz wygodny sposób komunikacji",
+    "submit": "Wyślij zgłoszenie",
+    "success": "Dziękujemy! Twoja wiadomość została pomyślnie wysłana.",
+    "errorRequired": "Wypełnij to pole",
+    "errorEmail": "Wprowadź poprawny adres e-mail",
+    "chTelegram": "Telegram",
+    "chWhatsapp": "WhatsApp",
+    "chViber": "Viber",
+    "chPhone": "Telefon",
+    "chEmail": "E-mail"
+  },
+  "benefits": {
+    "title": "Dlaczego szczególnie warto z nami współpracować",
+    "cta": "Opowiedz nam o swoim projekcie",
+    "card1Title": "Strona na raty na 3 miesiące",
+    "card1Desc": "Zdobądź swoją stronę już teraz, płać w ratach — szybko, wygodnie i bez przepłacania.",
+    "card2Title": "Zoptymalizowana szybka strona",
+    "card2Desc": "Strony ładują się w kilka sekund, wszystko działa płynnie i wygodnie.",
+    "card3Title": "Wsparcie strony internetowej",
+    "card3Desc": "3 miesiące bezpłatnego wsparcia + stały kontakt 24/7 po tym czasie."
+  },
+  "portfolio": {
+    "title": "Nasze portfolio",
+    "cta": "Opowiedz nam o swoim projekcie",
+    "visitSite": "Odwiedź stronę"
+  },
+  "partnership": {
+    "intro1": "Jesteśmy otwarci na możliwości partnerstwa z firmami lub osobami indywidualnymi.",
+    "intro2": "Dlatego, jak widzimy, partnerstwo z nami może być interesujące dla:",
+    "item1Title": "Założycieli startupów",
+    "item1Desc": "Którzy potrzebują zespołu technicznego do uruchomienia produktu i rozwoju biznesu na podstawie strategicznej współpracy.",
+    "item2Title": "Właścicieli biznesu",
+    "item2Desc": "Którzy potrzebują naszej wiedzy do zwiększenia sprzedaży i rozszerzenia własnych możliwości.",
+    "item3Title": "Sprzedawców afiliacyjnych",
+    "item3Desc": "Którzy są zainteresowani sprzedażą naszych usług i otrzymywaniem stabilnego % od projektów."
+  },
   "header": {
     "phone": "+(380) 63 682 6299",
     "phones": [
-      { "flag": "🇺🇸", "number": "+1 (647) 283-2846" },
-      { "flag": "🇩🇪", "number": "+(380) 63 682 6299" }
+      {
+        "flag": "🇺🇸",
+        "number": "+1 (647) 283-2846"
+      },
+      {
+        "flag": "🇩🇪",
+        "number": "+(380) 63 682 6299"
+      }
     ]
   }
 }
