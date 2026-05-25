@@ -286,9 +286,15 @@
   }
 }
 
+@keyframes scroll-indicator {
+  0%, 100% { transform: translateY(-2px); }
+  50% { transform: translateY(2px); }
+}
+
 @theme inline {
   --animate-spin-slow: spin-slow 10s linear infinite;
   --animate-marquee: marquee 50s linear infinite;
+  --animate-scroll-indicator: scroll-indicator 0.8s ease-in-out infinite;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -349,28 +355,25 @@ body {
   color: var(--foreground);
 }
 
-/* Hide native scrollbar immediately so overlayscrollbars appears without a flash */
+/* Native scrollbar — gold theme */
 html {
-  scrollbar-width: none;
+  scrollbar-width: thin;
+  scrollbar-color: #d4af37 #1a1a1a;
 }
 html::-webkit-scrollbar {
-  display: none;
+  width: 6px;
 }
-
-/* overlayscrollbars custom theme */
-.os-scrollbar {
-  --os-size: 6px;
-  --os-padding-perpendicular: 0;
-  --os-padding-axis: 0;
-  --os-track-border-radius: 9999px;
-  --os-track-bg: #1a1a1a;
-  --os-track-bg-hover: #1a1a1a;
-  --os-track-bg-active: #1a1a1a;
-  --os-handle-border-radius: 9999px;
-  --os-handle-bg: #d4af37;
-  --os-handle-bg-hover: #ffda63;
-  --os-handle-bg-active: #d4af37;
-  --os-handle-min-size: 40px;
+html::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 9999px;
+}
+html::-webkit-scrollbar-thumb {
+  background: #d4af37;
+  border-radius: 9999px;
+  min-height: 40px;
+}
+html::-webkit-scrollbar-thumb:hover {
+  background: #ffda63;
 }
 
 /* Prevent next/image opacity flash on navigation */

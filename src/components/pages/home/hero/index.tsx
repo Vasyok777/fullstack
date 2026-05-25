@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import { GiftButton } from "./gift-button";
+import { GiftTrigger } from "./gift-trigger";
 import { Container, CTAButton } from "@/components/ui";
 import { ScrollDown } from "./scroll-down";
 import { StatsCounter } from "./stats-counter";
@@ -59,14 +59,14 @@ export async function Hero() {
                 {t("description")}
               </p>
               <div className="shrink-0 md:hidden">
-                <GiftButton href="#offer" />
+                <GiftTrigger />
               </div>
             </div>
 
             <div className="flex items-center gap-5 md:gap-9.25">
               <CTAButton href="#contacts">{t("cta")}</CTAButton>
               <div className="hidden md:block">
-                <GiftButton href="#offer" />
+                <GiftTrigger />
               </div>
               <div className="md:hidden">
                 <ScrollDown text={t("scrollDown")} />

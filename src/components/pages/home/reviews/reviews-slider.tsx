@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-import * as Dialog from "@radix-ui/react-dialog";
 import { cn } from "@/lib/utils";
 import "swiper/css";
 
@@ -116,73 +115,39 @@ function PlayButton({ hovered }: { hovered: boolean }) {
   );
 }
 
-function VideoModal({ src, open, onClose }: { src: string; open: boolean; onClose: () => void }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (open) {
-      videoRef.current?.play().catch(() => {});
-    } else {
-      videoRef.current?.pause();
-    }
-  }, [open]);
-
-  return (
-    <Dialog.Root open={open} onOpenChange={(val) => { if (!val) onClose(); }}>
-      <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-9999 bg-black/85 backdrop-blur-sm" />
-        <Dialog.Content
-          className="fixed left-1/2 top-1/2 z-9999 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-3xl focus:outline-none"
-        >
-          <Dialog.Title className="sr-only">Review video</Dialog.Title>
-          <div className="relative w-full overflow-hidden rounded-2xl bg-black shadow-[0_0_60px_rgba(0,0,0,0.8)]">
-            <video
-              ref={videoRef}
-              src={src}
-              className="w-full max-h-[80vh] object-contain"
-              controls
-              playsInline
-            />
-          </div>
-          <Dialog.Close className="absolute -top-4 -right-4 w-9 h-9 rounded-full bg-[#1c1c1c] border border-white/10 flex items-center justify-center text-white/70 hover:text-white hover:border-white/30 transition-colors duration-200 focus:outline-none">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
-              <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            </svg>
-            <span className="sr-only">Close</span>
-          </Dialog.Close>
-        </Dialog.Content>
-      </Dialog.Portal>
-    </Dialog.Root>
-  );
-}
-
 function ReviewCard({ id, src, name, role, rating }: Review) {
   const [hovered, setHovered] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [playing, setPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  function handlePlay() {
+    setPlaying(true);
+    videoRef.current?.play().catch(() => {});
+  }
 
   return (
-    <>
-      <div
-        className="relative cursor-pointer h-52.75 md:h-77.5"
-        onClick={() => setOpen(true)}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-      >
-        <div className="absolute inset-0 overflow-hidden">
-          <video
-            src={src}
-            className="w-full h-full object-cover"
-            playsInline
-            preload="metadata"
-            muted
-          />
-        </div>
+    <div
+      className="relative h-52.75 md:h-77.5 overflow-hidden"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <video
+        ref={videoRef}
+        src={src}
+        className="absolute inset-0 w-full h-full object-cover"
+        playsInline
+        preload="metadata"
+        muted={!playing}
+        controls={playing}
+      />
 
+      {!playing && (
         <div
           className={cn(
-            "absolute inset-0 flex flex-col justify-between p-4 md:p-6 transition-colors duration-300",
+            "absolute inset-0 flex flex-col justify-between p-4 md:p-6 transition-colors duration-300 cursor-pointer",
             hovered ? "bg-black/80" : "bg-black/60",
           )}
+          onClick={handlePlay}
         >
           <Stars rating={rating} reviewId={id} />
           <div className="flex justify-center">
@@ -197,10 +162,8 @@ function ReviewCard({ id, src, name, role, rating }: Review) {
             </p>
           </div>
         </div>
-      </div>
-
-      <VideoModal src={src} open={open} onClose={() => setOpen(false)} />
-    </>
+      )}
+    </div>
   );
 }
 

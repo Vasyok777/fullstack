@@ -146,7 +146,7 @@ export function ContactForm({ t }: { t: T }) {
         </button>
         <span className="font-sans text-[13px] text-white/55">
           {t.privacyText}{" "}
-          <Link href="/privacy" className="text-[#D4AF37] underline">{t.privacyLink}</Link>
+          <Link href="/privacy-policy" className="text-[#D4AF37] underline">{t.privacyLink}</Link>
         </span>
       </div>
 

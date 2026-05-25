@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat, Russo_One, Manrope, Zen_Dots } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { ScrollProvider } from "@/components/layout/scroll-provider";
-import "overlayscrollbars/overlayscrollbars.css";
+import { SocialFloat } from "@/components/layout/social-float";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -44,13 +44,13 @@ export default function RootLayout({
 }) {
   return (
     <html
-      data-overlayscrollbars-initialize
       className={`${montserrat.variable} ${russoOne.variable} ${manrope.variable} ${zenDots.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground">
         <ScrollProvider>
           <Header />
           {children}
+          <SocialFloat />
         </ScrollProvider>
       </body>
     </html>

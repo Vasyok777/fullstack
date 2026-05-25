@@ -1,13 +1,13 @@
 "use client";
 
-type Props = { text: string };
+type Props = { text?: string };
 
-export function ScrollDown({ text }: Props) {
+export function ScrollDown({ text: _ }: Props) {
   const radius = 37;
   const circumference = +(2 * Math.PI * radius).toFixed(2);
 
-  const nbsp = " ";
-  const segment = `${text.toUpperCase()}${nbsp}${nbsp}•${nbsp}${nbsp}`;
+  const nbsp = " ";
+  const segment = `SCROLL DOWN${nbsp.repeat(3)}•${nbsp.repeat(3)}`;
   const label = segment.repeat(2);
 
   function handleClick() {
@@ -17,7 +17,7 @@ export function ScrollDown({ text }: Props) {
   return (
     <button
       onClick={handleClick}
-      aria-label={text}
+      aria-label="Scroll down"
       // size-14 = 56px (mobile), size-28 = 112px (desktop)
       className="group relative size-14 lg:size-28 flex items-center justify-center cursor-pointer"
     >
@@ -39,7 +39,7 @@ export function ScrollDown({ text }: Props) {
           <textPath
             href="#sdp"
             textLength={circumference}
-            lengthAdjust="spacing"
+            lengthAdjust="spacingAndGlyphs"
             className="text-[8.43px] font-['Helvetica_Neue',Helvetica,Arial,sans-serif] font-normal fill-white uppercase"
           >
             {label}
@@ -61,7 +61,7 @@ export function ScrollDown({ text }: Props) {
           height="7"
           rx="1.5"
           fill="white"
-          className="group-hover:animate-bounce"
+          className="group-hover:animate-scroll-indicator"
         />
       </svg>
     </button>

@@ -1,35 +1,30 @@
 "use client";
 
-import { useState, useRef, useEffect, useTransition } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/ui";
 import { Flag, type FlagCode } from "@/components/icons/flags";
 
-type Locale = "en" | "ua" | "pl" | "de" | "es" | "ru";
-const LOCALES: Locale[] = ["en", "ua", "pl", "de", "es", "ru"];
+type Locale = "ua" | "ru" | "en";
+const LOCALES: Locale[] = ["ua", "ru", "en"];
+const NON_DEFAULT: Locale[] = ["ru", "en"];
 
 const NAV: Record<Locale, Record<string, string>> = {
-  en: { services: "Services", portfolio: "Portfolio", about: "About us", partnership: "Partnership", blog: "Blog", contacts: "Contacts" },
   ua: { services: "Послуги", portfolio: "Портфоліо", about: "Про нас", partnership: "Партнерство", blog: "Блог", contacts: "Контакти" },
-  pl: { services: "Usługi", portfolio: "Portfolio", about: "O nas", partnership: "Partnerstwo", blog: "Blog", contacts: "Kontakty" },
-  de: { services: "Leistungen", portfolio: "Portfolio", about: "Über uns", partnership: "Partnerschaft", blog: "Blog", contacts: "Kontakte" },
-  es: { services: "Servicios", portfolio: "Portafolio", about: "Sobre nosotros", partnership: "Asociación", blog: "Blog", contacts: "Contactos" },
   ru: { services: "Услуги", portfolio: "Портфолио", about: "О нас", partnership: "Партнёрство", blog: "Блог", contacts: "Контакты" },
+  en: { services: "Services", portfolio: "Portfolio", about: "About us", partnership: "Partnership", blog: "Blog", contacts: "Contacts" },
 };
 
 const PHONES: Record<
   Locale,
   { flag: FlagCode; primary: string; extra: { flag: FlagCode; number: string }[] }
 > = {
-  en: { flag: "en", primary: "+1 (647) 283-2846", extra: [{ flag: "es", number: "+(380) 63 682 6299" }, { flag: "de", number: "+(380) 63 682 6299" }] },
-  ua: { flag: "ua", primary: "+(380) 63 682 6299", extra: [{ flag: "en", number: "+1 (647) 283-2846" }, { flag: "de", number: "+(380) 63 682 6299" }] },
-  pl: { flag: "pl", primary: "+(380) 63 682 6299", extra: [{ flag: "en", number: "+1 (647) 283-2846" }, { flag: "de", number: "+(380) 63 682 6299" }] },
-  de: { flag: "de", primary: "+(380) 63 682 6299", extra: [{ flag: "en", number: "+1 (647) 283-2846" }, { flag: "es", number: "+(380) 63 682 6299" }] },
-  es: { flag: "es", primary: "+(380) 63 682 6299", extra: [{ flag: "en", number: "+1 (647) 283-2846" }, { flag: "de", number: "+(380) 63 682 6299" }] },
-  ru: { flag: "ru", primary: "+(380) 63 682 6299", extra: [{ flag: "en", number: "+1 (647) 283-2846" }, { flag: "de", number: "+(380) 63 682 6299" }] },
+  ua: { flag: "ua", primary: "+(380) 63 682 6299", extra: [{ flag: "en", number: "+1 (647) 283-2846" }, { flag: "ru", number: "+(380) 63 682 6299" }] },
+  ru: { flag: "ru", primary: "+(380) 63 682 6299", extra: [{ flag: "ua", number: "+(380) 63 682 6299" }, { flag: "en", number: "+1 (647) 283-2846" }] },
+  en: { flag: "en", primary: "+1 (647) 283-2846", extra: [{ flag: "ua", number: "+(380) 63 682 6299" }, { flag: "ru", number: "+(380) 63 682 6299" }] },
 };
 
 function ArrowDown({ open }: { open: boolean }) {
@@ -81,13 +76,15 @@ function useDropdown() {
 
 function getLocaleFromPath(pathname: string): Locale {
   const seg = pathname.split("/")[1] as Locale;
-  return LOCALES.includes(seg) ? seg : "en";
+  return NON_DEFAULT.includes(seg) ? seg : "ua";
+}
+
+function localePath(locale: Locale, path: string) {
+  return locale === "ua" ? path : `/${locale}${path}`;
 }
 
 export function Header() {
   const pathname = usePathname();
-  const router = useRouter();
-  const [, startTransition] = useTransition();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const locale = getLocaleFromPath(pathname);
@@ -95,21 +92,14 @@ export function Header() {
   const phone = PHONES[locale];
 
   const navItems = [
-    { key: "services", href: `/${locale}/services` },
-    { key: "portfolio", href: `/${locale}/portfolio` },
-    { key: "about", href: `/${locale}/about` },
-    { key: "partnership", href: `/${locale}/partnership` },
-    { key: "blog", href: `/${locale}/blog` },
-    { key: "contacts", href: `/${locale}/contacts` },
+    { key: "services", href: localePath(locale, "/services") },
+    { key: "portfolio", href: localePath(locale, "/portfolio") },
+    { key: "about", href: localePath(locale, "/about") },
+    { key: "partnership", href: localePath(locale, "/partnership") },
+    { key: "blog", href: localePath(locale, "/blog") },
+    { key: "contacts", href: localePath(locale, "/contacts") },
   ];
 
-  function switchLocale(next: Locale) {
-    const segments = pathname.split("/");
-    segments[1] = next;
-    startTransition(() => router.push(segments.join("/")));
-  }
-
-  const phoneDd = useDropdown();
   const langDd = useDropdown();
 
   const [scrolled, setScrolled] = useState(false);
@@ -125,7 +115,7 @@ export function Header() {
       <header className={cn("fixed top-0 left-0 right-0 z-50 transition-[backdrop-filter,background-color] duration-300", scrolled && "backdrop-blur-md bg-background/70")}>
         <Container className="max-w-370 h-18 lg:h-23 flex items-center justify-between gap-4">
           {/* Logo */}
-          <a href={`/${locale}`} className="shrink-0">
+          <a href={locale === "ua" ? "/" : `/${locale}`} className="shrink-0">
             <Image
               src="/logo.svg"
               alt="Fullstack Innovations"
@@ -156,37 +146,14 @@ export function Header() {
 
           {/* Right controls */}
           <div className="flex items-center gap-4 shrink-0">
-            {/* Phone dropdown */}
-            <div
-              ref={phoneDd.ref}
-              className="relative hidden md:block"
-              onMouseEnter={phoneDd.open_}
-              onMouseLeave={phoneDd.close_}
+            {/* Phone */}
+            <a
+              href="tel:+380636826299"
+              className="hidden md:flex items-center gap-1.5 font-sans text-[15px] font-bold leading-[130%] text-[#F6F6F6] transition-colors duration-200 hover:text-[#D4AF37]"
             >
-              <button
-                onClick={phoneDd.toggle}
-                className="flex items-center gap-1.5 cursor-pointer font-sans text-[15px] font-bold leading-[130%] text-[#F6F6F6] transition-colors duration-200 hover:text-[#D4AF37]"
-              >
-                <Flag code={phone.flag} />
-                <span>{phone.primary}</span>
-                <ArrowDown open={phoneDd.open} />
-              </button>
-
-              {phoneDd.open && (
-                <div className="absolute top-full left-0 mt-3 w-max rounded-xl border border-[var(--border-subtle)] shadow-2xl z-50 backdrop-blur flex flex-col gap-3 p-5 [background:var(--surface-dropdown)]">
-                  {phone.extra.map((p, i) => (
-                    <a
-                      key={i}
-                      href={`tel:${p.number.replace(/[\s()]/g, "")}`}
-                      className="flex items-center gap-3 cursor-pointer font-sans text-[15px] font-bold leading-[130%] text-[#F6F6F6] transition-colors duration-200 hover:text-[#D4AF37]"
-                    >
-                      <Flag code={p.flag} />
-                      <span>{p.number}</span>
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
+              <Flag code="ua" />
+              <span>+(380) 63 682 6299</span>
+            </a>
 
             {/* Divider */}
             <div className="hidden md:block w-px h-4 [background:var(--border-divider)]" />
@@ -209,13 +176,13 @@ export function Header() {
               {langDd.open && (
                 <div className="absolute top-full right-0 mt-3 z-50 flex w-12 flex-col items-center gap-2 rounded-[20px] border border-[var(--border-accent)] p-2.5 backdrop-blur-[5px] [background:var(--surface-glass)]">
                   {LOCALES.filter((l) => l !== locale).map((l) => (
-                    <button
+                    <a
                       key={l}
-                      onClick={() => { langDd.setOpen(false); switchLocale(l); }}
+                      href={l === "ua" ? "/" : `/${l}`}
                       className="w-full text-center text-[14px] font-bold leading-[130%] uppercase cursor-pointer text-[#F6F6F6] transition-colors duration-200 hover:text-[#D4AF37]"
                     >
                       {l}
-                    </button>
+                    </a>
                   ))}
                 </div>
               )}

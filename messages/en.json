@@ -128,6 +128,39 @@
     "item3Title": "Affiliated Sellers",
     "item3Desc": "Who is interested in selling our services and receiving stable % from projects."
   },
+  "quiz": {
+    "forward": "Forward",
+    "back": "Back",
+    "step": "Step",
+    "s1q": "What type of website are you interested in?",
+    "s1o1": "Landing Page",
+    "s1o2": "Corporate Site",
+    "s1o3": "Online Store",
+    "s1o4": "Other",
+    "s2q": "What are your terms?",
+    "s2o1": "From 1 to 2 months",
+    "s2o2": "From 2 to 3 months",
+    "s2o3": "From 4 months",
+    "s3q": "What is the main focus of your business?",
+    "s3placeholder": "Write down everything that interests you",
+    "s4q": "Leave your contact details — we will tell you the price",
+    "s4name": "Your name",
+    "s4phone": "Your phone",
+    "s4email": "Your email",
+    "send": "Send",
+    "successTitle": "Thank you!",
+    "successDesc": "We are already working on the calculation and will contact you shortly",
+    "successGift": "Gift credited",
+    "successReturn": "Return to the main page"
+  },
+  "giftModal": {
+    "feature1": "SEO optimization of the website",
+    "feature2": "Website localization",
+    "feature3": "Connecting Google Analytics",
+    "title": "A free gift for your website",
+    "description": "Take your gift — and we will make your website more effective at no extra cost.",
+    "cta": "Take your gift"
+  },
   "header": {
     "phone": "+1 (647) 283-2846",
     "phones": [
