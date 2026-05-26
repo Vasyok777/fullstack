@@ -143,9 +143,9 @@ export function BenefitCard({ image, video, Icon, title, desc, href, prefillMsg 
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
         className={cn(
-          "absolute inset-0 w-full h-full object-cover brightness-50 transition-opacity duration-300",
+          "absolute inset-0 w-full h-full object-cover lg:brightness-50",
           videoReady ? "opacity-100" : "opacity-0",
           "lg:opacity-0 lg:group-hover:opacity-100 lg:transition-opacity lg:duration-500",
         )}

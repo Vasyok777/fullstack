@@ -154,7 +154,7 @@ function ReviewCard({ id, src, poster, name, role, rating, inactive }: Review) {
           videoReady ? "opacity-100" : "opacity-0",
         )}
         playsInline
-        preload="auto"
+        preload="metadata"
         onLoadedMetadata={handleLoadedMetadata}
         muted={!playing}
         controls={playing}
