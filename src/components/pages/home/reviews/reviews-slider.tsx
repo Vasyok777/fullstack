@@ -117,8 +117,16 @@ function ReviewCard({ id, src, poster, name, role, rating, inactive }: Review) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   function handleLoadedMetadata() {
-    if (videoRef.current && !poster) {
-      videoRef.current.currentTime = 0.1;
+    if (videoRef.current && !poster && !playing) {
+      videoRef.current.muted = true;
+      videoRef.current.play()
+        .then(() => {
+          if (!playing && videoRef.current) {
+            videoRef.current.pause();
+            videoRef.current.currentTime = 0.1;
+          }
+        })
+        .catch(() => {});
     }
   }
 

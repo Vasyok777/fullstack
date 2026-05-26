@@ -114,7 +114,7 @@ export function BenefitCard({ image, video, Icon, title, desc, href, prefillMsg 
       ref={containerRef}
       href={href}
       onClick={handleClick}
-      className="group relative overflow-hidden bg-[#111] flex flex-col cursor-pointer"
+      className="group relative overflow-hidden bg-[#111] flex flex-col cursor-pointer transform-[translateZ(0)]"
       onMouseEnter={() => { if (!isMobile) videoRef.current?.play(); }}
       onMouseLeave={() => {
         if (!isMobile && videoRef.current) {
