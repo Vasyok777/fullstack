@@ -75,20 +75,32 @@ interface BenefitCardProps {
 
 export function BenefitCard({ image, video, Icon, title, desc, href, prefillMsg }: BenefitCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLAnchorElement>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 1023px)");
     setIsMobile(mq.matches);
-    if (mq.matches) videoRef.current?.play().catch(() => {});
     const handler = (e: MediaQueryListEvent) => {
       setIsMobile(e.matches);
-      if (e.matches) videoRef.current?.play().catch(() => {});
-      else { videoRef.current?.pause(); if (videoRef.current) videoRef.current.currentTime = 0; }
+      if (!e.matches) { videoRef.current?.pause(); if (videoRef.current) videoRef.current.currentTime = 0; }
     };
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
   }, []);
+
+  useEffect(() => {
+    if (!isMobile) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) videoRef.current?.play().catch(() => {});
+        else videoRef.current?.pause();
+      },
+      { threshold: 0.3 }
+    );
+    if (containerRef.current) observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, [isMobile]);
 
   function handleClick(e: React.MouseEvent) {
     if (prefillMsg) {
@@ -99,6 +111,7 @@ export function BenefitCard({ image, video, Icon, title, desc, href, prefillMsg 
 
   return (
     <a
+      ref={containerRef}
       href={href}
       onClick={handleClick}
       className="group relative overflow-hidden bg-[#111] flex flex-col cursor-pointer"
@@ -110,27 +123,28 @@ export function BenefitCard({ image, video, Icon, title, desc, href, prefillMsg 
         }
       }}
     >
-      {/* Static image — hidden on hover (desktop) or always hidden on mobile */}
-      <div className={`absolute inset-0 lg:transition-opacity duration-500 ${isMobile ? "opacity-0" : "opacity-100 group-hover:opacity-0"}`}>
+      {/* Static image — visible on mobile as fallback/poster, fades out on desktop hover */}
+      <div className="absolute inset-0 lg:transition-opacity lg:duration-500 lg:group-hover:opacity-0">
         <Image
           src={image}
           alt=""
           fill
-          className="object-cover brightness-75 transition-transform duration-500 group-hover:scale-105"
+          className="object-cover brightness-75 lg:transition-transform lg:duration-500 lg:group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/10 to-transparent" />
       </div>
 
-      {/* Video — always on mobile, hover on desktop */}
+      {/* Video — always visible on mobile (covers static image when playing), hover on desktop */}
       <video
         ref={videoRef}
         src={video}
         muted
         loop
         playsInline
-        className={`absolute inset-0 w-full h-full object-cover brightness-50 lg:transition-opacity duration-500 ${isMobile ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+        preload="auto"
+        className="absolute inset-0 w-full h-full object-cover brightness-50 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 lg:transition-opacity lg:duration-500"
       />
-      <div className={`absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent lg:transition-opacity duration-500 pointer-events-none ${isMobile ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`} />
+      <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent opacity-100 lg:opacity-0 lg:group-hover:opacity-100 lg:transition-opacity lg:duration-500 pointer-events-none" />
 
       {/* arrow — absolute top-right corner */}
       <div className="absolute top-0 right-0 z-20 w-10 h-10 lg:w-11 lg:h-11 flex items-center justify-center shrink-0 text-white [background:var(--gradient-gold)] group-hover:text-[#0C0C0C] group-hover:[background:white] transition-all duration-300">
