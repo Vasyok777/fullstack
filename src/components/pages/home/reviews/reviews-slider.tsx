@@ -116,6 +116,12 @@ function ReviewCard({ id, src, poster, name, role, rating, inactive }: Review) {
   const [playing, setPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  function handleLoadedMetadata() {
+    if (videoRef.current && !poster) {
+      videoRef.current.currentTime = 0.1;
+    }
+  }
+
   function handlePlay() {
     if (inactive) return;
     setPlaying(true);
@@ -135,6 +141,7 @@ function ReviewCard({ id, src, poster, name, role, rating, inactive }: Review) {
         className="absolute inset-0 w-full h-full object-cover"
         playsInline
         preload="metadata"
+        onLoadedMetadata={handleLoadedMetadata}
         muted={!playing}
         controls={playing}
       />
