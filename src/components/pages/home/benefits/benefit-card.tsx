@@ -154,19 +154,19 @@ export function BenefitCard({ image, video, Icon, title, desc, href, prefillMsg 
       <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent opacity-100 lg:opacity-0 lg:group-hover:opacity-100 lg:transition-opacity lg:duration-500 pointer-events-none" />
 
       {/* arrow — absolute top-right corner */}
-      <div className="absolute top-0 right-0 z-20 w-10 h-10 lg:w-11 lg:h-11 flex items-center justify-center shrink-0 text-white [background:var(--gradient-gold)] group-hover:text-[#0C0C0C] group-hover:[background:white] lg:transition-all lg:duration-300">
+      <div className="absolute top-0 right-0 z-20 w-10 h-10 lg:w-11 lg:h-11 flex items-center justify-center shrink-0 text-white [background:var(--gradient-gold)] lg:group-hover:text-[#0C0C0C] lg:group-hover:[background:white] lg:transition-all lg:duration-300">
         <ArrowDiagonalIcon />
       </div>
 
-      <div className="relative z-10 flex flex-col justify-between p-5 lg:p-6 min-h-62.5 lg:min-h-76.75 border border-[#3D3D3D] group-hover:border-transparent">
+      <div className="relative z-10 flex flex-col justify-between p-5 lg:p-6 min-h-62.5 lg:min-h-76.75 border border-[#3D3D3D] lg:group-hover:border-transparent">
         <div>
-          <div className="transition-[filter] duration-300 group-hover:filter-[brightness(0)_invert(1)]">
+          <div className="lg:transition-[filter] lg:duration-300 lg:group-hover:filter-[brightness(0)_invert(1)]">
             <Icon />
           </div>
         </div>
 
         <div>
-          <h3 className="font-display uppercase text-[15px] md:text-[16px] lg:text-[18px] mb-2 leading-tight text-[#D4AF37] group-hover:text-white transition-colors duration-300">
+          <h3 className="font-display uppercase text-[15px] md:text-[16px] lg:text-[18px] mb-2 leading-tight text-[#D4AF37] lg:group-hover:text-white lg:transition-colors lg:duration-300">
             {title}
           </h3>
           <p className="text-[12px] md:text-[13px] lg:text-[14px] leading-[150%] text-[#D9D9D9] font-sans whitespace-pre-line">

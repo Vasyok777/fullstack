@@ -142,7 +142,7 @@ function ReviewCard({ id, src, poster, name, role, rating, inactive }: Review) {
   return (
     <div
       className="relative h-52.75 md:h-77.5 overflow-hidden bg-black"
-      onMouseEnter={() => !inactive && setHovered(true)}
+      onMouseEnter={() => !inactive && window.matchMedia("(hover:hover) and (pointer:fine)").matches && setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
       <video
@@ -150,7 +150,7 @@ function ReviewCard({ id, src, poster, name, role, rating, inactive }: Review) {
         src={src}
         poster={poster}
         className={cn(
-          "absolute inset-0 w-full h-full object-cover transition-opacity duration-300",
+          "absolute inset-0 w-full h-full object-cover",
           videoReady ? "opacity-100" : "opacity-0",
         )}
         playsInline
