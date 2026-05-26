@@ -140,7 +140,7 @@ function ReviewCard({ id, src, poster, name, role, rating, inactive }: Review) {
         poster={poster}
         className="absolute inset-0 w-full h-full object-cover"
         playsInline
-        preload="metadata"
+        preload="auto"
         onLoadedMetadata={handleLoadedMetadata}
         muted={!playing}
         controls={playing}
