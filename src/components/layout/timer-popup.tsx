@@ -84,11 +84,21 @@ export function TimerPopup() {
   const [submitted, setSubmitted] = useState(false);
   const [phoneError, setPhoneError] = useState(false);
 
+  const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+
+  function dismiss() {
+    setOpen(false);
+    sessionStorage.setItem("quiz_opened", "1");
+    localStorage.setItem("quiz_dismissed", String(Date.now()));
+  }
+
   useEffect(() => {
     const timer = setTimeout(() => {
       if (sessionStorage.getItem("quiz_opened")) return;
+      const dismissed = localStorage.getItem("quiz_dismissed");
+      if (dismissed && Date.now() - Number(dismissed) < WEEK_MS) return;
       const submitted = localStorage.getItem("quiz_submitted");
-      if (submitted && Date.now() - Number(submitted) < 7 * 24 * 60 * 60 * 1000) return;
+      if (submitted && Date.now() - Number(submitted) < WEEK_MS) return;
       setOpen(true);
     }, 35000);
     return () => clearTimeout(timer);
@@ -105,7 +115,7 @@ export function TimerPopup() {
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") dismiss();
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
@@ -163,7 +173,7 @@ export function TimerPopup() {
   return (
     <div
       className="fixed inset-0 z-110 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
-      onClick={() => setOpen(false)}
+      onClick={dismiss}
     >
       <div
         className={`relative overflow-hidden border border-[rgba(212,175,55,0.55)] flex flex-col ${
@@ -184,7 +194,7 @@ export function TimerPopup() {
         />
 
         <button
-          onClick={() => setOpen(false)}
+          onClick={dismiss}
           className="absolute top-3 right-3 md:top-4 md:right-4 z-20 w-8 h-8 flex items-center justify-center text-white/60 hover:text-white transition-colors cursor-pointer"
         >
           <X size={18} />

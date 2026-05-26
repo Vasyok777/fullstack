@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function CloseIcon() {
   return (
@@ -212,18 +212,19 @@ export function SocialFloat() {
   const HIDE_KEY = "social-float-hidden-until";
   const HOUR_MS = 7 * 24 * 60 * 60 * 1000;
 
-  const [open, setOpen] = useState(() => {
-    if (typeof window === "undefined") return true;
+  const [open, setOpen] = useState<boolean | null>(null);
+
+  useEffect(() => {
     const until = localStorage.getItem(HIDE_KEY);
-    return !until || Date.now() > Number(until);
-  });
+    setOpen(!until || Date.now() > Number(until));
+  }, []);
 
   function handleClose() {
     localStorage.setItem(HIDE_KEY, String(Date.now() + HOUR_MS));
     setOpen(false);
   }
 
-  if (!open) return null;
+  if (!open) return null; // null = not yet checked; false = dismissed
 
   return (
     <div className="fixed right-1 top-25 md:top-45 z-50 flex flex-col items-end gap-2">
