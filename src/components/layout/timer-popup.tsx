@@ -180,6 +180,7 @@ export function TimerPopup() {
           muted
           loop
           playsInline
+          preload="auto"
         />
 
         <button

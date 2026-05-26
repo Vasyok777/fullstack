@@ -149,7 +149,7 @@ function ReviewCard({ id, src, poster, name, role, rating, inactive }: Review) {
       {!playing && (
         <div
           className={cn(
-            "absolute inset-0 flex flex-col justify-between p-4 md:p-6 transition-colors duration-300",
+            "absolute inset-0 flex flex-col justify-between p-4 md:p-6 lg:transition-colors duration-300",
             inactive ? "bg-black/70 cursor-default" : "cursor-pointer",
             !inactive && (hovered ? "bg-black/80" : "bg-black/60"),
           )}

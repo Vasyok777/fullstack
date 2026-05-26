@@ -141,6 +141,7 @@ export function QuizModal({ onClose }: Props) {
           muted
           loop
           playsInline
+          preload="auto"
         />
         {/* Close */}
         <button

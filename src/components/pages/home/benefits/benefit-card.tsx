@@ -111,7 +111,7 @@ export function BenefitCard({ image, video, Icon, title, desc, href, prefillMsg 
       }}
     >
       {/* Static image — hidden on hover (desktop) or always hidden on mobile */}
-      <div className={`absolute inset-0 transition-opacity duration-500 ${isMobile ? "opacity-0" : "opacity-100 group-hover:opacity-0"}`}>
+      <div className={`absolute inset-0 lg:transition-opacity duration-500 ${isMobile ? "opacity-0" : "opacity-100 group-hover:opacity-0"}`}>
         <Image
           src={image}
           alt=""
@@ -128,9 +128,9 @@ export function BenefitCard({ image, video, Icon, title, desc, href, prefillMsg 
         muted
         loop
         playsInline
-        className={`absolute inset-0 w-full h-full object-cover brightness-50 transition-opacity duration-500 ${isMobile ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+        className={`absolute inset-0 w-full h-full object-cover brightness-50 lg:transition-opacity duration-500 ${isMobile ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
       />
-      <div className={`absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent transition-opacity duration-500 pointer-events-none ${isMobile ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`} />
+      <div className={`absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent lg:transition-opacity duration-500 pointer-events-none ${isMobile ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`} />
 
       {/* arrow — absolute top-right corner */}
       <div className="absolute top-0 right-0 z-20 w-10 h-10 lg:w-11 lg:h-11 flex items-center justify-center shrink-0 text-white [background:var(--gradient-gold)] group-hover:text-[#0C0C0C] group-hover:[background:white] transition-all duration-300">
