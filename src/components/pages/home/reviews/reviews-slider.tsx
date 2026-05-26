@@ -114,6 +114,7 @@ function PlayButton({ hovered }: { hovered: boolean }) {
 function ReviewCard({ id, src, poster, name, role, rating, inactive }: Review) {
   const [hovered, setHovered] = useState(false);
   const [playing, setPlaying] = useState(false);
+  const [videoReady, setVideoReady] = useState(!!poster);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   function handleLoadedMetadata() {
@@ -124,21 +125,23 @@ function ReviewCard({ id, src, poster, name, role, rating, inactive }: Review) {
           if (!playing && videoRef.current) {
             videoRef.current.pause();
             videoRef.current.currentTime = 0.1;
+            setVideoReady(true);
           }
         })
-        .catch(() => {});
+        .catch(() => { setVideoReady(true); });
     }
   }
 
   function handlePlay() {
     if (inactive) return;
     setPlaying(true);
+    setVideoReady(true);
     videoRef.current?.play().catch(() => {});
   }
 
   return (
     <div
-      className="relative h-52.75 md:h-77.5 overflow-hidden"
+      className="relative h-52.75 md:h-77.5 overflow-hidden bg-black"
       onMouseEnter={() => !inactive && setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -146,7 +149,10 @@ function ReviewCard({ id, src, poster, name, role, rating, inactive }: Review) {
         ref={videoRef}
         src={src}
         poster={poster}
-        className="absolute inset-0 w-full h-full object-cover"
+        className={cn(
+          "absolute inset-0 w-full h-full object-cover transition-opacity duration-300",
+          videoReady ? "opacity-100" : "opacity-0",
+        )}
         playsInline
         preload="auto"
         onLoadedMetadata={handleLoadedMetadata}

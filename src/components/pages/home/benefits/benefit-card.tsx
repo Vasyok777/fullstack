@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 import { prefillContact } from "@/lib/prefill-contact";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
@@ -77,6 +78,7 @@ export function BenefitCard({ image, video, Icon, title, desc, href, prefillMsg 
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLAnchorElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 1023px)");
@@ -114,7 +116,7 @@ export function BenefitCard({ image, video, Icon, title, desc, href, prefillMsg 
       ref={containerRef}
       href={href}
       onClick={handleClick}
-      className="group relative overflow-hidden bg-[#111] flex flex-col cursor-pointer transform-[translateZ(0)]"
+      className="group relative overflow-hidden bg-[#111] flex flex-col cursor-pointer"
       onMouseEnter={() => { if (!isMobile) videoRef.current?.play(); }}
       onMouseLeave={() => {
         if (!isMobile && videoRef.current) {
@@ -142,12 +144,17 @@ export function BenefitCard({ image, video, Icon, title, desc, href, prefillMsg 
         loop
         playsInline
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover brightness-50 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 lg:transition-opacity lg:duration-500"
+        className={cn(
+          "absolute inset-0 w-full h-full object-cover brightness-50 transition-opacity duration-300",
+          videoReady ? "opacity-100" : "opacity-0",
+          "lg:opacity-0 lg:group-hover:opacity-100 lg:transition-opacity lg:duration-500",
+        )}
+        onCanPlay={() => setVideoReady(true)}
       />
       <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent opacity-100 lg:opacity-0 lg:group-hover:opacity-100 lg:transition-opacity lg:duration-500 pointer-events-none" />
 
       {/* arrow — absolute top-right corner */}
-      <div className="absolute top-0 right-0 z-20 w-10 h-10 lg:w-11 lg:h-11 flex items-center justify-center shrink-0 text-white [background:var(--gradient-gold)] group-hover:text-[#0C0C0C] group-hover:[background:white] transition-all duration-300">
+      <div className="absolute top-0 right-0 z-20 w-10 h-10 lg:w-11 lg:h-11 flex items-center justify-center shrink-0 text-white [background:var(--gradient-gold)] group-hover:text-[#0C0C0C] group-hover:[background:white] lg:transition-all lg:duration-300">
         <ArrowDiagonalIcon />
       </div>
 
