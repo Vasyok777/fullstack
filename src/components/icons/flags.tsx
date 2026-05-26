@@ -33,10 +33,9 @@ export function FlagEN({ size = 20, className }: Props) {
 
 export function FlagUA({ size = 20, className }: Props) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size * 0.65} viewBox="0 0 20 13" className={cn("shrink-0", className)}>
-      <rect width="20" height="6.5" rx={R} fill="#005BBB"/>
-      <rect width="20" height="6.5" y="6.5" fill="#FFD500"/>
-      <rect width="20" height="13" rx={R} fill="none" stroke="transparent"/>
+    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size * 0.6} viewBox="0 0 20 12" className={cn("shrink-0", className)}>
+      <rect width="20" height="12" fill="#0054B2"/>
+      <rect width="20" height="6" y="6" fill="#F7D006"/>
     </svg>
   );
 }

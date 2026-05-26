@@ -18,6 +18,7 @@ export async function Contacts() {
     submit: t("submit"),
     success: t("success"),
     errorRequired: t("errorRequired"),
+    errorPrivacy: t("errorPrivacy"),
     errorEmail: t("errorEmail"),
     chTelegram: t("chTelegram"),
     chWhatsapp: t("chWhatsapp"),
@@ -29,7 +30,7 @@ export async function Contacts() {
   return (
     <section
       id="contacts"
-      className="relative overflow-hidden py-14 md:py-20 lg:py-28"
+      className="relative overflow-hidden py-14 md:py-20 lg:py-28 scroll-mt-20 lg:scroll-mt-24"
     >
       <div className="absolute inset-0 z-0">
         <Image

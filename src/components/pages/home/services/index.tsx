@@ -1,20 +1,47 @@
 import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui";
 import { ServiceVideoBg } from "./video-bg";
-import { ArrowDiagonalIcon } from "@/components/icons";
+import { ServiceItem } from "./service-item";
 
 export async function Services() {
   const t = await getTranslations("services");
 
   const items = [
-    { title: t("item1Title"), desc: t("item1Desc"), terms: t("item1Terms"), href: "/services" },
-    { title: t("item2Title"), desc: t("item2Desc"), terms: t("item2Terms"), href: "/services" },
-    { title: t("item3Title"), desc: t("item3Desc"), terms: t("item3Terms"), href: "/services" },
-    { title: t("item4Title"), desc: t("item4Desc"), terms: t("item4Terms"), href: "/services" },
+    {
+      title: t("item1Title"),
+      desc: t("item1Desc"),
+      terms: t("item1Terms"),
+      price: t("item1Price"),
+      prefillMsg: t("item1Prefill"),
+    },
+    {
+      title: t("item2Title"),
+      desc: t("item2Desc"),
+      terms: t("item2Terms"),
+      price: t("item2Price"),
+      prefillMsg: t("item2Prefill"),
+    },
+    {
+      title: t("item3Title"),
+      desc: t("item3Desc"),
+      terms: t("item3Terms"),
+      price: t("item3Price"),
+      prefillMsg: t("item3Prefill"),
+    },
+    {
+      title: t("item4Title"),
+      desc: t("item4Desc"),
+      terms: t("item4Terms"),
+      price: t("item4Price"),
+      prefillMsg: t("item4Prefill"),
+    },
   ];
 
   return (
-    <section className="relative overflow-hidden py-10 md:py-12.5 lg:py-28 border border-black">
+    <section
+      id="services"
+      className="relative overflow-hidden py-10 md:py-12.5 lg:py-28 border border-black scroll-mt-20 lg:scroll-mt-24"
+    >
       {/* Background video */}
       <div className="absolute inset-0 z-0">
         <ServiceVideoBg />
@@ -55,7 +82,7 @@ export async function Services() {
 
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-[340px_1fr] lg:gap-8">
           {/* Left: SERVICES label */}
-          <div className="pt-1">
+          <div className="pt-1 lg:pt-9.5">
             <span className="text-[22px] md:text-[30px] text-[#6D6D6D] font-display font-normal leading-normal uppercase">
               {t("sectionLabel")}
             </span>
@@ -64,32 +91,7 @@ export async function Services() {
           {/* Right: service list */}
           <div>
             {items.map((item, index) => (
-              <a
-                key={index}
-                href={item.href}
-                className="group relative flex items-start px-4 py-5 gap-2 md:px-6 md:py-7.5 md:gap-3 lg:gap-5 border-b border-[#3D3D3D]"
-              >
-                {/* Hover overlay */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none backdrop-blur-[12.5px] bg-[rgba(12,12,12,0.10)]" />
-
-                {/* Text content */}
-                <div className="relative z-10 flex-1 min-w-0 md:pr-17.5 max-w-137.5">
-                  <h3 className="text-white group-hover:text-[#D4AF37] transition-colors duration-300 mb-3 text-[22px] md:text-[30px] lg:text-[40px] uppercase leading-normal font-display font-normal">
-                    {item.title}
-                  </h3>
-                  <p className="mb-2 text-[13px] md:text-[14px] text-[#D9D9D9] font-sans font-medium leading-[130%]">
-                    {item.desc}
-                  </p>
-                  <span className="text-[13px] md:text-[14px] font-black text-[#D9D9D9] font-sans leading-[130%]">
-                    {item.terms}
-                  </span>
-                </div>
-
-                {/* Arrow button */}
-                <div className="absolute top-2.5 right-2.5 w-10 h-10 md:w-12 md:h-12 lg:w-15 lg:h-15 p-2.9 flex items-center justify-center transition-all duration-300 group-hover:[outline:1px_solid_rgba(212,175,55,0.70)] group-hover:outline-offset-[6px] md:group-hover:outline-offset-10 [background:var(--gradient-gold)]">
-                  <ArrowDiagonalIcon />
-                </div>
-              </a>
+              <ServiceItem key={index} {...item} />
             ))}
           </div>
         </div>

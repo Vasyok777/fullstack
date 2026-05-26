@@ -12,6 +12,7 @@ export async function Benefits() {
       Icon: InstallmentIcon,
       title: t("card1Title"),
       desc: t("card1Desc"),
+      prefillMsg: t("card1Prefill"),
     },
     {
       image: "/home/benefits/seo.jpg",
@@ -19,6 +20,7 @@ export async function Benefits() {
       Icon: SeoIcon,
       title: t("card2Title"),
       desc: t("card2Desc"),
+      prefillMsg: t("card2Prefill"),
     },
     {
       image: "/home/benefits/support.jpg",
@@ -26,6 +28,7 @@ export async function Benefits() {
       Icon: RocketIcon,
       title: t("card3Title"),
       desc: t("card3Desc"),
+      prefillMsg: t("card3Prefill"),
     },
   ];
 
@@ -36,7 +39,7 @@ export async function Benefits() {
           <SectionTitle className="mb-0 md:mb-0">{t("title")}</SectionTitle>
           <CTAButton
             href="#contacts"
-            className="hidden md:inline-flex cta-btn-outline"
+            className="hidden md:inline-flex cta-btn-outline shrink-0"
           >
             {t("cta")}
           </CTAButton>
@@ -44,14 +47,6 @@ export async function Benefits() {
 
         <BenefitsSlider cards={cards.map((c) => ({ ...c, href: "#contacts" }))} />
 
-        <div className="mt-5 md:hidden">
-          <CTAButton
-            href="#contacts"
-            className="cta-btn-outline w-full justify-center"
-          >
-            {t("cta")}
-          </CTAButton>
-        </div>
       </Container>
     </section>
   );

@@ -14,7 +14,7 @@ export async function Company() {
   ];
 
   return (
-    <section className="relative pt-5 lg:pt-25 overflow-hidden">
+    <section id="about" className="relative pt-5 lg:pt-25 overflow-hidden scroll-mt-20 lg:scroll-mt-24">
       {/* Background */}
       <div className="absolute right-0 top-0 w-[55%] h-full z-0 hidden md:block">
         <Image
@@ -28,14 +28,14 @@ export async function Company() {
 
       <Container className="relative z-10">
         {/* Text block */}
-        <div className="max-w-full lg:max-w-[665px]">
+        <div className="max-w-full lg:max-w-175">
           <SectionTitle>{t("title")}</SectionTitle>
 
-          <p className="mb-4 font-sans max-md:text-[13px] text-[15px] leading-[160%] text-[#D9D9D9]">
+          <p className="mb-3 font-sans max-md:text-[13px] text-[15px] leading-[130%] text-[#D9D9D9]">
             {t("desc1")}
           </p>
 
-          <p className="mb-8 font-sans max-md:text-[13px] text-[15px] leading-[160%] text-[#D9D9D9]">
+          <p className="mb-8 font-sans max-md:text-[13px] text-[15px] leading-[130%] text-[#D9D9D9]">
             {t("desc2")}
           </p>
 

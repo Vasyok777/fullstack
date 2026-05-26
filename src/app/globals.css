@@ -103,6 +103,22 @@
     box-shadow: 0 5px 15px 0 rgba(255, 195, 0, 0.4);
   }
 
+  /* White solid variant — default state for submit button */
+  .cta-btn.cta-btn-white {
+    background: #ffffff;
+    background-image: none;
+    border-color: #ffffff;
+    color: #0c0c0c;
+    box-shadow: none;
+  }
+  .cta-btn.cta-btn-white:hover {
+    background: transparent;
+    background-image: none;
+    border-color: #ffffff;
+    color: #ffffff;
+    box-shadow: none;
+  }
+
   /* Stats counter — mobile first */
   .stats-counter {
     display: flex;
@@ -148,13 +164,6 @@
   }
 
   @media (min-width: 1024px) {
-    .gift-btn {
-      width: 70px;
-      height: 70px;
-      padding: 8.75px;
-      border-radius: 21px;
-    }
-
     .stats-counter {
       width: 320px;
       height: auto;
@@ -190,6 +199,15 @@
   }
   .gift-btn:active {
     box-shadow: 0 0 15px 2px #ffda63;
+  }
+
+  @media (min-width: 1024px) {
+    .gift-btn {
+      width: 70px;
+      height: 70px;
+      padding: 8.75px;
+      border-radius: 21px;
+    }
   }
 }
 
@@ -244,9 +262,9 @@
 .portfolio-dots .swiper-pagination-bullet,
 .benefits-dots .swiper-pagination-bullet {
   display: block;
-  width: 8px;
-  height: 8px;
-  background: rgba(255, 255, 255, 1);
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
   opacity: 1;
   border-radius: 9999px;
   transition: all 0.2s;
@@ -258,8 +276,10 @@
   display: block;
   width: 10px;
   height: 10px;
-  background: #d4af37;
+  background: linear-gradient(90deg, #d4af37 0%, #ffda63 100%);
   border-radius: 9999px;
+  outline: 1px solid #d4af37;
+  outline-offset: 2px;
 }
 
 @keyframes sonar-ping {
@@ -275,6 +295,23 @@
     transform: scale(1.45);
     opacity: 0;
   }
+}
+
+@keyframes GiftBlink {
+  0%, 42%, 58%, 100% { opacity: 1; }
+  47%, 53%           { opacity: 0.5; }
+}
+
+@keyframes mouseMove {
+  0%        { transform: translate(0, 0) rotate(-45deg); }
+  40%       { transform: translate(-35px, -35px) rotate(0deg); }
+  60%       { transform: translate(-35px, -35px) rotate(0deg); }
+  100%      { transform: translate(0, 0) rotate(-45deg); }
+}
+
+@keyframes mouseBlink {
+  0%, 42%, 58%, 100% { opacity: 1; }
+  47%, 53%           { opacity: 0.5; }
 }
 
 @keyframes marquee {
@@ -293,7 +330,7 @@
 
 @theme inline {
   --animate-spin-slow: spin-slow 10s linear infinite;
-  --animate-marquee: marquee 50s linear infinite;
+  --animate-marquee: marquee 580s linear infinite;
   --animate-scroll-indicator: scroll-indicator 0.8s ease-in-out infinite;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -347,6 +384,10 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html,

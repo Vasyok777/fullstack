@@ -14,9 +14,16 @@ function BulletIcon() {
       height="23"
       viewBox="0 0 23 23"
       fill="none"
+      className="shrink-0 overflow-visible"
     >
-      <circle cx="11.5" cy="11.5" r="11.5" fill="#D4AF37" fillOpacity="0.2" />
-      <circle cx="11.5" cy="11.5" r="7.5" fill="#D4AF37" fillOpacity="0.2" />
+      <circle
+        cx="11.5" cy="11.5" r="11.5" fill="#D4AF37"
+        className="transform-fill origin-center animate-[sonar-ping_2.2s_ease-out_infinite]"
+      />
+      <circle
+        cx="11.5" cy="11.5" r="7.5" fill="#D4AF37"
+        className="transform-fill origin-center animate-[sonar-ping_2.2s_ease-out_0.65s_infinite]"
+      />
       <circle cx="11.5" cy="11.5" r="3.5" fill="#D4AF37" />
     </svg>
   );
@@ -34,7 +41,7 @@ export function GiftModal({ onClose, onQuiz }: Props) {
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
 
       <div
-        className="relative z-10 w-full max-w-[954px] border border-[rgba(212,175,55,0.35)] [background:linear-gradient(90deg,rgba(212,175,55,0.08)_0%,rgba(255,218,99,0.08)_100%)] backdrop-blur-2xl flex flex-col items-center gap-6 pt-20 px-7.5 pb-7.5 md:gap-8.5 md:px-15 md:pt-25 md:pb-15"
+        className="relative z-10 w-full max-w-[954px] border border-[rgba(212,175,55,0.55)] [background:linear-gradient(90deg,rgba(212,175,55,0.08)_0%,rgba(255,218,99,0.08)_100%)] backdrop-blur-2xl flex flex-col items-center gap-6 pt-20 px-7.5 pb-7.5 md:gap-8.5 md:px-15 md:pt-25 md:pb-15"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Gift image */}

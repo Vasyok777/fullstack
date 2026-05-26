@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+// import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/ui";
 import { Flag, type FlagCode } from "@/components/icons/flags";
@@ -13,18 +13,18 @@ const LOCALES: Locale[] = ["ua", "ru", "en"];
 const NON_DEFAULT: Locale[] = ["ru", "en"];
 
 const NAV: Record<Locale, Record<string, string>> = {
-  ua: { services: "Послуги", portfolio: "Портфоліо", about: "Про нас", partnership: "Партнерство", blog: "Блог", contacts: "Контакти" },
-  ru: { services: "Услуги", portfolio: "Портфолио", about: "О нас", partnership: "Партнёрство", blog: "Блог", contacts: "Контакты" },
-  en: { services: "Services", portfolio: "Portfolio", about: "About us", partnership: "Partnership", blog: "Blog", contacts: "Contacts" },
+  ua: { services: "Послуги", portfolio: "Портфоліо", about: "Про нас", partnership: "Партнерство", contacts: "Контакти" },
+  ru: { services: "Услуги", portfolio: "Портфолио", about: "О нас", partnership: "Партнёрство", contacts: "Контакты" },
+  en: { services: "Services", portfolio: "Portfolio", about: "About us", partnership: "Partnership", contacts: "Contacts" },
 };
 
 const PHONES: Record<
   Locale,
   { flag: FlagCode; primary: string; extra: { flag: FlagCode; number: string }[] }
 > = {
-  ua: { flag: "ua", primary: "+(380) 63 682 6299", extra: [{ flag: "en", number: "+1 (647) 283-2846" }, { flag: "ru", number: "+(380) 63 682 6299" }] },
-  ru: { flag: "ru", primary: "+(380) 63 682 6299", extra: [{ flag: "ua", number: "+(380) 63 682 6299" }, { flag: "en", number: "+1 (647) 283-2846" }] },
-  en: { flag: "en", primary: "+1 (647) 283-2846", extra: [{ flag: "ua", number: "+(380) 63 682 6299" }, { flag: "ru", number: "+(380) 63 682 6299" }] },
+  ua: { flag: "ua", primary: "+(380) 67 835 8568", extra: [] },
+  ru: { flag: "ru", primary: "+(380) 67 835 8568", extra: [] },
+  en: { flag: "en", primary: "+(380) 67 835 8568", extra: [] },
 };
 
 function ArrowDown({ open }: { open: boolean }) {
@@ -79,9 +79,6 @@ function getLocaleFromPath(pathname: string): Locale {
   return NON_DEFAULT.includes(seg) ? seg : "ua";
 }
 
-function localePath(locale: Locale, path: string) {
-  return locale === "ua" ? path : `/${locale}${path}`;
-}
 
 export function Header() {
   const pathname = usePathname();
@@ -92,12 +89,11 @@ export function Header() {
   const phone = PHONES[locale];
 
   const navItems = [
-    { key: "services", href: localePath(locale, "/services") },
-    { key: "portfolio", href: localePath(locale, "/portfolio") },
-    { key: "about", href: localePath(locale, "/about") },
-    { key: "partnership", href: localePath(locale, "/partnership") },
-    { key: "blog", href: localePath(locale, "/blog") },
-    { key: "contacts", href: localePath(locale, "/contacts") },
+    { key: "services", href: "#services" },
+    { key: "portfolio", href: "#portfolio" },
+    { key: "about", href: "#about" },
+    { key: "partnership", href: "#partnership" },
+    { key: "contacts", href: "#contacts" },
   ];
 
   const langDd = useDropdown();
@@ -148,11 +144,11 @@ export function Header() {
           <div className="flex items-center gap-4 shrink-0">
             {/* Phone */}
             <a
-              href="tel:+380636826299"
+              href="tel:+380678358568"
               className="hidden md:flex items-center gap-1.5 font-sans text-[15px] font-bold leading-[130%] text-[#F6F6F6] transition-colors duration-200 hover:text-[#D4AF37]"
             >
               <Flag code="ua" />
-              <span>+(380) 63 682 6299</span>
+              <span>+(380) 67 835 8568</span>
             </a>
 
             {/* Divider */}
@@ -189,13 +185,13 @@ export function Header() {
             </div>
 
             {/* Burger */}
-            <button
+            {/* <button
               onClick={() => setMobileOpen((v) => !v)}
               className="lg:hidden transition-colors hover:text-accent ml-1 text-[var(--text-primary)]"
               aria-label="Menu"
             >
               {mobileOpen ? <X className="size-6" /> : <Menu className="size-6" />}
-            </button>
+            </button> */}
           </div>
         </Container>
       </header>

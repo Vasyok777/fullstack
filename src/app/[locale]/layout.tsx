@@ -3,6 +3,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { FooterSimple } from "@/components/layout/footer-simple";
+import { TimerPopup } from "@/components/layout/timer-popup";
 
 type Locale = (typeof routing.locales)[number];
 type Props = { children: React.ReactNode; params: Promise<{ locale: string }> };
@@ -21,6 +22,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     <NextIntlClientProvider messages={messages}>
       {children}
       <FooterSimple />
+      <TimerPopup />
     </NextIntlClientProvider>
   );
 }

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import { Container, CircleOfferButton, SectionTitle } from "@/components/ui";
+import { Container, SectionTitle } from "@/components/ui";
+import { MapPins } from "./map-pins";
 
 export async function Clients() {
   const t = await getTranslations("clients");
@@ -14,16 +15,16 @@ export async function Clients() {
 
         <div className="relative w-full aspect-2/1">
           <Image
-            src="/home/map.png"
+            src="/home/map.svg"
             alt=""
             fill
             className="object-contain object-center select-none pointer-events-none"
             unoptimized
           />
 
-          <div className="absolute hidden md:block left-[34%] top-[67%] -translate-x-1/2 -translate-y-1/2">
-            <CircleOfferButton href="#contacts" label={t("getOffer")} />
-          </div>
+          <MapPins />
+
+
         </div>
       </Container>
     </section>

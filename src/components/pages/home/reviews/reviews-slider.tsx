@@ -9,39 +9,35 @@ import "swiper/css";
 type Review = {
   id: number;
   src: string;
+  poster?: string;
   name: string;
   role: string;
   rating: number;
+  inactive?: boolean;
 };
 
 const REVIEWS: Review[] = [
   {
     id: 1,
     src: "/reviews/1.mp4",
-    name: "Max Orlov",
-    role: "Software Engineer",
+    name: "Mark",
+    role: "Business owner",
     rating: 5.0,
   },
   {
     id: 2,
     src: "/reviews/2.mp4",
-    name: "Max Orlov",
-    role: "Software Engineer",
+    name: "Anneris",
+    role: "Business owner",
     rating: 5.0,
   },
   {
     id: 3,
-    src: "/reviews/1.mp4",
+    src: "/reviews/3.mp4",
     name: "Max Orlov",
     role: "Software Engineer",
     rating: 5.0,
-  },
-  {
-    id: 4,
-    src: "/reviews/2.mp4",
-    name: "Max Orlov",
-    role: "Software Engineer",
-    rating: 5.0,
+    inactive: true,
   },
 ];
 
@@ -115,12 +111,13 @@ function PlayButton({ hovered }: { hovered: boolean }) {
   );
 }
 
-function ReviewCard({ id, src, name, role, rating }: Review) {
+function ReviewCard({ id, src, poster, name, role, rating, inactive }: Review) {
   const [hovered, setHovered] = useState(false);
   const [playing, setPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   function handlePlay() {
+    if (inactive) return;
     setPlaying(true);
     videoRef.current?.play().catch(() => {});
   }
@@ -128,12 +125,13 @@ function ReviewCard({ id, src, name, role, rating }: Review) {
   return (
     <div
       className="relative h-52.75 md:h-77.5 overflow-hidden"
-      onMouseEnter={() => setHovered(true)}
+      onMouseEnter={() => !inactive && setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
       <video
         ref={videoRef}
         src={src}
+        poster={poster}
         className="absolute inset-0 w-full h-full object-cover"
         playsInline
         preload="metadata"
@@ -144,20 +142,29 @@ function ReviewCard({ id, src, name, role, rating }: Review) {
       {!playing && (
         <div
           className={cn(
-            "absolute inset-0 flex flex-col justify-between p-4 md:p-6 transition-colors duration-300 cursor-pointer",
-            hovered ? "bg-black/80" : "bg-black/60",
+            "absolute inset-0 flex flex-col justify-between p-4 md:p-6 transition-colors duration-300",
+            inactive ? "bg-black/70 cursor-default" : "cursor-pointer",
+            !inactive && (hovered ? "bg-black/80" : "bg-black/60"),
           )}
           onClick={handlePlay}
         >
           <Stars rating={rating} reviewId={id} />
-          <div className="flex justify-center">
-            <PlayButton hovered={hovered} />
-          </div>
+          {!inactive && (
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <PlayButton hovered={hovered} />
+            </div>
+          )}
           <div>
-            <p className="font-display uppercase leading-none md:leading-normal text-[#D4AF37] text-[16px] md:text-[22px] font-normal mb-1.5">
+            <p className={cn(
+              "font-display uppercase leading-none! text-[16px] md:text-[22px] font-normal mb-0.5",
+              inactive ? "text-[#D4AF37]/40" : "text-[#D4AF37]",
+            )}>
               {name}
             </p>
-            <p className="font-sans font-medium leading-[130%] text-[#D9D9D9] text-[12px] md:text-[14px]">
+            <p className={cn(
+              "font-sans font-medium leading-[130%] text-[12px] md:text-[14px]",
+              inactive ? "text-[#D9D9D9]/40" : "text-[#D9D9D9]",
+            )}>
               {role}
             </p>
           </div>
@@ -187,7 +194,7 @@ export function ReviewsSlider() {
         ))}
       </Swiper>
 
-      <div className="reviews-dots flex items-center justify-center gap-2 mt-6" />
+      <div className="reviews-dots flex items-center justify-center gap-2 mt-6 lg:hidden" />
     </div>
   );
 }

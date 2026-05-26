@@ -32,7 +32,7 @@ function TelegramIcon() {
       viewBox="0 0 28 28"
       fill="none"
     >
-      <g clipPath="url(#tg-clip)">
+      <g clipPath="url(#sf-tg-clip)">
         <path
           d="M14 28C21.732 28 28 21.732 28 14C28 6.26801 21.732 0 14 0C6.26801 0 0 6.26801 0 14C0 21.732 6.26801 28 14 28Z"
           fill="#0C0C0C"
@@ -45,7 +45,7 @@ function TelegramIcon() {
         />
       </g>
       <defs>
-        <clipPath id="tg-clip">
+        <clipPath id="sf-tg-clip">
           <rect width="28" height="28" fill="white" />
         </clipPath>
       </defs>
@@ -91,7 +91,7 @@ function ViberIcon() {
       viewBox="0 0 28 28"
       fill="none"
     >
-      <g clipPath="url(#viber-clip)">
+      <g clipPath="url(#sf-viber-clip)">
         <path
           d="M14 27.6719C21.5508 27.6719 27.6719 21.5508 27.6719 14C27.6719 6.44923 21.5508 0.328125 14 0.328125C6.44923 0.328125 0.328125 6.44923 0.328125 14C0.328125 21.5508 6.44923 27.6719 14 27.6719Z"
           fill="#0C0C0C"
@@ -120,7 +120,7 @@ function ViberIcon() {
         />
       </g>
       <defs>
-        <clipPath id="viber-clip">
+        <clipPath id="sf-viber-clip">
           <rect width="28" height="28" fill="white" />
         </clipPath>
       </defs>
@@ -137,7 +137,7 @@ function WhatsAppIcon() {
       viewBox="0 0 28 28"
       fill="none"
     >
-      <g clipPath="url(#wa-clip)">
+      <g clipPath="url(#sf-wa-clip)">
         <path
           d="M14 28C21.732 28 28 21.732 28 14C28 6.26801 21.732 0 14 0C6.26801 0 0 6.26801 0 14C0 21.732 6.26801 28 14 28Z"
           fill="#0C0C0C"
@@ -152,7 +152,7 @@ function WhatsAppIcon() {
         />
       </g>
       <defs>
-        <clipPath id="wa-clip">
+        <clipPath id="sf-wa-clip">
           <rect width="28" height="28" fill="white" />
         </clipPath>
       </defs>
@@ -169,7 +169,7 @@ function FacebookIcon() {
       viewBox="0 0 28 28"
       fill="none"
     >
-      <g clipPath="url(#fb-clip)">
+      <g clipPath="url(#sf-fb-clip)">
         <path
           d="M14 28C21.732 28 28 21.732 28 14C28 6.26801 21.732 0 14 0C6.26801 0 0 6.26801 0 14C0 21.732 6.26801 28 14 28Z"
           fill="#0C0C0C"
@@ -180,7 +180,7 @@ function FacebookIcon() {
         />
       </g>
       <defs>
-        <clipPath id="fb-clip">
+        <clipPath id="sf-fb-clip">
           <rect width="28" height="28" fill="white" />
         </clipPath>
       </defs>
@@ -189,16 +189,28 @@ function FacebookIcon() {
 }
 
 const socials = [
-  { Icon: TelegramIcon, href: "#", label: "Telegram" },
-  { Icon: InstagramIcon, href: "#", label: "Instagram" },
-  { Icon: ViberIcon, href: "#", label: "Viber" },
-  { Icon: WhatsAppIcon, href: "#", label: "WhatsApp" },
-  { Icon: FacebookIcon, href: "#", label: "Facebook" },
+  {
+    Icon: TelegramIcon,
+    href: "https://t.me/fullstack_innovations",
+    label: "Telegram",
+  },
+  { Icon: ViberIcon, href: "viber://chat?number=380636826299", label: "Viber" },
+  { Icon: WhatsAppIcon, href: "https://wa.me/380678358568", label: "WhatsApp" },
+  {
+    Icon: InstagramIcon,
+    href: "https://www.instagram.com/fullstack.innovations/",
+    label: "Instagram",
+  },
+  {
+    Icon: FacebookIcon,
+    href: "https://www.facebook.com/profile.php?id=61566304770393",
+    label: "Facebook",
+  },
 ];
 
 export function SocialFloat() {
   const HIDE_KEY = "social-float-hidden-until";
-  const HOUR_MS = 60 * 60 * 1000;
+  const HOUR_MS = 7 * 24 * 60 * 60 * 1000;
 
   const [open, setOpen] = useState(() => {
     if (typeof window === "undefined") return true;
@@ -214,7 +226,7 @@ export function SocialFloat() {
   if (!open) return null;
 
   return (
-    <div className="fixed right-2 top-[180px] z-50 flex flex-col items-end gap-2">
+    <div className="fixed right-1 top-25 md:top-45 z-50 flex flex-col items-end gap-2">
       <button
         onClick={handleClose}
         aria-label="Close social links"

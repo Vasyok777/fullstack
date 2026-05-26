@@ -6,52 +6,52 @@ import { PortfolioSlider } from "./portfolio-slider";
 const ITEMS = [
   {
     id: 1,
-    image: "/portfolio/1.jpg",
-    name: "CHINASES SUSHI ROLL",
-    category: "App Development",
-    href: "#",
+    image: "/portfolio/dressinupartatelier_1.png",
+    name: "DRESSING UP ART ATELIER",
+    category: "Веб-розробка",
+    href: "https://dressinupartatelier.com/",
   },
   {
     id: 2,
-    image: "/portfolio/2.jpg",
-    name: "TIMES EVENT",
-    category: "Web Development",
-    href: "#",
+    image: "/portfolio/yufglass_2.png",
+    name: "YUF GLASS",
+    category: "Веб-розробка",
+    href: "https://www.yufglass.com/",
   },
   {
     id: 3,
-    image: "/portfolio/3.jpg",
-    name: "KRAKEN",
-    category: "Branding",
-    href: "#",
+    image: "/portfolio/skm-music_3.png",
+    name: "SKM MUSIC",
+    category: "Веб-розробка",
+    href: "https://skm-music.com.ua/",
   },
   {
     id: 4,
-    image: "/portfolio/1.jpg",
-    name: "CHINASES SUSHI ROLL",
-    category: "App Development",
-    href: "#",
+    image: "/portfolio/baylap_4.png",
+    name: "BAYLAP",
+    category: "Веб-розробка",
+    href: "https://baylap.com/",
   },
   {
     id: 5,
-    image: "/portfolio/2.jpg",
-    name: "TIMES EVENT",
-    category: "Web Development",
-    href: "#",
+    image: "/portfolio/litfad_5.png",
+    name: "LITFAD",
+    category: "Веб-розробка",
+    href: "https://www.litfad.com/",
   },
   {
     id: 6,
-    image: "/portfolio/3.jpg",
-    name: "KRAKEN",
-    category: "Branding",
-    href: "#",
+    image: "/portfolio/idol_6.png",
+    name: "IDOL",
+    category: "Веб-розробка",
+    href: "https://www.idol.cz/en/",
   },
   {
     id: 7,
-    image: "/portfolio/1.jpg",
-    name: "CHINASES SUSHI ROLL",
-    category: "App Development",
-    href: "#",
+    image: "/portfolio/lakiq_7.png",
+    name: "LAKIQ",
+    category: "Веб-розробка",
+    href: "https://www.lakiq.com/",
   },
 ];
 
@@ -59,7 +59,7 @@ export async function Portfolio() {
   const t = await getTranslations("portfolio");
 
   return (
-    <section id="portfolio">
+    <section id="portfolio" className="scroll-mt-20 lg:scroll-mt-24">
       <Container>
         <div className="flex items-start md:items-center justify-between">
           <SectionTitle className="mb-0 md:mb-0">{t("title")}</SectionTitle>

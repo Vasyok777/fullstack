@@ -59,32 +59,31 @@ function UnderlineInput({
   );
 }
 
-const TOTAL_STEPS = 4;
+const TOTAL_STEPS = 3;
 
 export function QuizModal({ onClose }: Props) {
   const t = useTranslations("quiz");
   const [step, setStep] = useState(1);
   const [selected, setSelected] = useState<string | null>(null);
-  const [textValue, setTextValue] = useState("");
+  const [answers, setAnswers] = useState<Record<number, string>>({});
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [phoneError, setPhoneError] = useState(false);
 
   const stepQuestion: Record<number, string> = {
     1: t("s1q"),
     2: t("s2q"),
-    3: t("s3q"),
-    4: t("s4q"),
+    3: t("s4q"),
   };
 
   const stepOptions: Record<number, string[]> = {
     1: [t("s1o1"), t("s1o2"), t("s1o3"), t("s1o4")],
-    2: [t("s2o1"), t("s2o2"), t("s2o3")],
+    2: [t("s2o1"), t("s2o2"), t("s2o3"), t("s2o4"), t("s2o5")],
   };
 
-  const canGoForward =
-    step === 3 ? textValue.trim().length > 0 : selected !== null;
+  const canGoForward = selected !== null;
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
@@ -94,9 +93,9 @@ export function QuizModal({ onClose }: Props) {
 
   function goForward() {
     if (step < TOTAL_STEPS) {
+      if (selected) setAnswers((prev) => ({ ...prev, [step]: selected }));
       setStep(step + 1);
       setSelected(null);
-      setTextValue("");
     } else {
       onClose();
     }
@@ -105,11 +104,26 @@ export function QuizModal({ onClose }: Props) {
   function goBack() {
     setStep(step - 1);
     setSelected(null);
-    setTextValue("");
   }
 
-  function handleSend() {
+  async function handleSend() {
+    const digits = phone.replace(/\D/g, "");
+    if (!phone.trim() || digits.length < 7 || digits.length > 15) {
+      setPhoneError(true);
+      return;
+    }
     setSubmitted(true);
+    await fetch("/api/quiz", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        siteType: answers[1] || "—",
+        timeline: answers[2] || "—",
+        name: name || "—",
+        phone,
+        email: email || "—",
+      }),
+    }).catch(() => {});
   }
 
   return (
@@ -117,7 +131,7 @@ export function QuizModal({ onClose }: Props) {
 
       {/* Modal card */}
       <div
-        className={`relative overflow-hidden border border-[rgba(212,175,55,0.35)] flex flex-col ${submitted ? "w-full max-w-116.5 p-12.5 items-center gap-5" : "w-full max-w-177.5 p-7.5 md:p-12.5 items-end gap-10"}`}
+        className={`relative overflow-hidden border border-[rgba(212,175,55,0.55)] flex flex-col ${submitted ? "w-full max-w-116.5 p-12.5 items-center gap-5" : "w-full max-w-177.5 p-7.5 md:p-12.5 items-end gap-10"}`}
         onClick={(e) => e.stopPropagation()}
       >
         <video
@@ -202,20 +216,24 @@ export function QuizModal({ onClose }: Props) {
         </h2>
 
         {/* Content */}
-        {step === 4 ? (
+        {step === 3 ? (
           <div className="relative z-10 flex flex-col gap-6 self-stretch">
             <UnderlineInput placeholder={t("s4name")} value={name} onChange={setName} />
-            <UnderlineInput placeholder={t("s4phone")} value={phone} onChange={setPhone} type="tel" />
+            <div className="flex flex-col gap-1">
+              <UnderlineInput
+                placeholder={t("s4phone")}
+                value={phone}
+                onChange={(v) => { setPhone(v); setPhoneError(false); }}
+                type="tel"
+              />
+              {phoneError && (
+                <span className="font-sans text-[12px] text-red-400 leading-normal">
+                  {t("phoneRequired")}
+                </span>
+              )}
+            </div>
             <UnderlineInput placeholder={t("s4email")} value={email} onChange={setEmail} type="email" />
           </div>
-        ) : step === 3 ? (
-          <input
-            type="text"
-            placeholder={t("s3placeholder")}
-            value={textValue}
-            onChange={(e) => setTextValue(e.target.value)}
-            className="relative z-10 self-stretch bg-transparent border-b border-white/30 text-white font-sans text-[15px] font-light placeholder:text-white/40 outline-none py-2"
-          />
         ) : (
           <div className="relative z-10 flex flex-col items-start gap-4 self-stretch">
             {stepOptions[step].map((opt) => (
@@ -230,7 +248,7 @@ export function QuizModal({ onClose }: Props) {
         )}
 
         {/* Navigation */}
-        {step === 4 ? (
+        {step === 3 ? (
           <div className="relative z-10 flex flex-col items-start gap-10 w-full">
             <CTAButton onClick={handleSend}>{t("send")}</CTAButton>
             <button

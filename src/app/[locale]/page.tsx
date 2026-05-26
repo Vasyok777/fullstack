@@ -21,7 +21,7 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <main className="flex-1 flex pt-18 flex-col gap-10 md:gap-20 lg:gap-36">
-      <div className="min-h-[calc(100dvh-4.5rem)] flex flex-col">
+      <div className="lg:min-h-[calc(100svh-4.5rem)] flex flex-col">
         <Hero />
         <div className="mt-auto">
           <RunLine text={t("runLine")} />

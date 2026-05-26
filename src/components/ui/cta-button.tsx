@@ -4,6 +4,7 @@ type Props = {
   onClick?: () => void;
   className?: string;
   type?: "submit" | "button" | "reset";
+  disabled?: boolean;
 };
 
 function ArrowRight() {
@@ -26,7 +27,7 @@ function ArrowRight() {
   );
 }
 
-export function CTAButton({ children, href, onClick, className, type = "button" }: Props) {
+export function CTAButton({ children, href, onClick, className, type = "button", disabled }: Props) {
   const cls = `cta-btn${className ? ` ${className}` : ""}`;
 
   if (href) {
@@ -39,7 +40,7 @@ export function CTAButton({ children, href, onClick, className, type = "button" 
   }
 
   return (
-    <button type={type} onClick={onClick} className={cls}>
+    <button type={type} onClick={onClick} disabled={disabled} className={`${cls} disabled:opacity-40 disabled:cursor-not-allowed`}>
       {children}
       <ArrowRight />
     </button>

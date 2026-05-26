@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 
 type PortfolioItem = {
@@ -15,36 +17,16 @@ type PortfolioItem = {
 
 function ChevronLeft() {
   return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <path d="M15 18l-6-6 6-6" />
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path d="M15 18L9 12L15 6" stroke="#D4AF37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   );
 }
 
 function ChevronRight() {
   return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <path d="M9 18l6-6-6-6" />
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path d="M9 18L15 12L9 6" stroke="#D4AF37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   );
 }
@@ -62,7 +44,7 @@ function PortfolioCard({
         src={item.image}
         alt={item.name}
         fill
-        className="object-cover transition-transform duration-500 group-hover:scale-105"
+        className="object-cover transition-transform duration-500 group-hover:scale-105 grayscale"
       />
 
       {/* full-cover link */}
@@ -81,7 +63,7 @@ function PortfolioCard({
         </div>
 
         {/* visit site button */}
-        <div className="inline-flex items-center gap-4 h-12.5 px-6 [background:var(--gradient-gold)] text-[#0c0c0c] font-sans font-semibold text-[14px] leading-normal whitespace-nowrap shrink-0">
+        <a href={item.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-4 h-12.5 px-6 [background:var(--gradient-gold)] text-[#0c0c0c] font-sans font-semibold text-[14px] leading-normal whitespace-nowrap shrink-0 border border-transparent transition-all duration-300 hover:[background:none] hover:border-white hover:text-white pointer-events-auto">
           {visitSiteLabel}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +80,7 @@ function PortfolioCard({
               strokeWidth="2"
             />
           </svg>
-        </div>
+        </a>
       </div>
     </div>
   );
@@ -111,40 +93,60 @@ export function PortfolioSlider({
   items: PortfolioItem[];
   visitSiteLabel: string;
 }) {
-  return (
-    <div className="relative">
-      <Swiper
-        modules={[Pagination, Navigation]}
-        loop={true}
-        navigation={{ prevEl: ".portfolio-prev", nextEl: ".portfolio-next" }}
-        pagination={{ clickable: true, el: ".portfolio-dots" }}
-        spaceBetween={16}
-        slidesPerView={1}
-        breakpoints={{
-          768: { slidesPerView: 2, spaceBetween: 20 },
-          1024: { slidesPerView: 3, spaceBetween: 20 },
-        }}
-      >
-        {items.map((item) => (
-          <SwiperSlide key={item.id} className="overflow-hidden">
-            <PortfolioCard item={item} visitSiteLabel={visitSiteLabel} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
 
-      {/* nav arrows — desktop only */}
-      <button
-        className="portfolio-prev absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/60 border border-white/30 items-center justify-center text-white transition-colors hover:bg-black/80 hidden md:flex"
-        aria-label="Previous"
-      >
-        <ChevronLeft />
-      </button>
-      <button
-        className="portfolio-next absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/60 border border-white/30 items-center justify-center text-white transition-colors hover:bg-black/80 hidden md:flex"
-        aria-label="Next"
-      >
-        <ChevronRight />
-      </button>
+  function handleSwiper(swiper: SwiperType) {
+    setIsBeginning(swiper.isBeginning);
+    setIsEnd(swiper.isEnd);
+  }
+
+  function handleSlideChange(swiper: SwiperType) {
+    setIsBeginning(swiper.isBeginning);
+    setIsEnd(swiper.isEnd);
+  }
+
+  return (
+    <div>
+      <div className="relative">
+        <Swiper
+          modules={[Pagination, Navigation]}
+          loop={false}
+          navigation={{ prevEl: ".portfolio-prev", nextEl: ".portfolio-next" }}
+          pagination={{ clickable: true, el: ".portfolio-dots" }}
+          spaceBetween={16}
+          slidesPerView={1}
+          breakpoints={{
+            768: { slidesPerView: 2, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 20 },
+          }}
+          onSwiper={handleSwiper}
+          onSlideChange={handleSlideChange}
+        >
+          {items.map((item) => (
+            <SwiperSlide key={item.id}>
+              <PortfolioCard item={item} visitSiteLabel={visitSiteLabel} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {!isBeginning && (
+          <button
+            className="portfolio-prev hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 p-2 rounded-[100px] bg-[rgba(65,65,65,0.20)] backdrop-blur-[20px] items-center justify-center cursor-pointer"
+            aria-label="Previous"
+          >
+            <ChevronLeft />
+          </button>
+        )}
+        {!isEnd && (
+          <button
+            className="portfolio-next hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 p-2 rounded-[100px] bg-[rgba(65,65,65,0.20)] backdrop-blur-[20px] items-center justify-center cursor-pointer"
+            aria-label="Next"
+          >
+            <ChevronRight />
+          </button>
+        )}
+      </div>
 
       <div className="portfolio-dots flex items-center justify-center gap-2 mt-6" />
     </div>
