@@ -27,9 +27,8 @@ export async function Hero() {
         <div className="grid grid-cols-1 md:grid-cols-2 md:items-center w-full py-10 lg:py-16">
           {/* Right column */}
           <div className="order-1 md:order-2 relative flex items-center justify-center min-h-72 md:min-h-88 lg:min-h-150">
-            <div className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-32.25 h-32.25 md:w-71 md:h-71 rounded-full bg-[#D4AF37] blur-[85px] md:blur-[188px] pointer-events-none select-none z-0" />
 
-            <Image
+<Image
               src="/home/hero.webp"
               alt="Hero"
               fill
