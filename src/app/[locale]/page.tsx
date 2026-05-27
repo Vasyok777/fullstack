@@ -20,7 +20,7 @@ export default async function HomePage({ params }: Props) {
   const t = await getTranslations();
 
   return (
-    <main className="flex-1 flex pt-18 flex-col gap-10 md:gap-20 lg:gap-36">
+    <main className="flex-1 flex pt-18 flex-col gap-10 md:gap-20 lg:gap-30">
       <div className="lg:min-h-[calc(100svh-4.5rem)] flex flex-col">
         <Hero />
         <div className="mt-auto">
