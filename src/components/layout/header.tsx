@@ -108,7 +108,7 @@ export function Header() {
 
   return (
     <>
-      <header className={cn("fixed top-0 left-0 right-0 z-50 transition-colors duration-300", scrolled && "backdrop-blur-md bg-background/70")}>
+      <header className={cn("fixed top-0 left-0 right-0 z-50 transition-colors duration-300", scrolled && "bg-[rgba(12,12,12,0.92)]")}>
         <Container className="max-w-370 h-18 lg:h-23 flex items-center justify-between gap-4">
           {/* Logo */}
           <a href={locale === "ua" ? "/" : `/${locale}`} className="shrink-0">
@@ -199,7 +199,7 @@ export function Header() {
       {/* Mobile overlay */}
       <div
         className={cn(
-          "fixed inset-0 top-18 z-40 backdrop-blur-sm flex flex-col px-6 pt-8 pb-10 gap-1 transition-all duration-300 lg:hidden [background:var(--surface-mobile)]",
+          "fixed inset-0 top-18 z-40 backdrop-blur-sm flex flex-col px-6 pt-8 pb-10 gap-1 transition-opacity duration-300 lg:hidden [background:var(--surface-mobile)]",
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
       >

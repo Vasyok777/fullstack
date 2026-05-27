@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import { cn } from "@/lib/utils";
@@ -115,21 +115,27 @@ function ReviewCard({ id, src, poster, name, role, rating, inactive }: Review) {
   const [hovered, setHovered] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [videoReady, setVideoReady] = useState(!!poster);
+  const [preload, setPreload] = useState<"none" | "auto">(poster ? "none" : "none");
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  function handleLoadedMetadata() {
-    if (videoRef.current && !poster && !playing) {
-      videoRef.current.muted = true;
-      videoRef.current.play()
-        .then(() => {
-          if (!playing && videoRef.current) {
-            videoRef.current.pause();
-            videoRef.current.currentTime = 0.1;
-            setVideoReady(true);
-          }
-        })
-        .catch(() => { setVideoReady(true); });
-    }
+  useEffect(() => {
+    const el = videoRef.current;
+    if (!el || poster) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setPreload("auto");
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [poster]);
+
+  function handleCanPlay() {
+    if (!playing) setVideoReady(true);
   }
 
   function handlePlay() {
@@ -154,8 +160,8 @@ function ReviewCard({ id, src, poster, name, role, rating, inactive }: Review) {
           videoReady ? "opacity-100" : "opacity-0",
         )}
         playsInline
-        preload="metadata"
-        onLoadedMetadata={handleLoadedMetadata}
+        preload={preload}
+        onCanPlay={handleCanPlay}
         muted={!playing}
         controls={playing}
       />

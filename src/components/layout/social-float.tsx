@@ -231,14 +231,14 @@ export function SocialFloat() {
       <button
         onClick={handleClose}
         aria-label="Close social links"
-        className="group w-6.25 h-6.25 shrink-0 flex items-center justify-center rounded-[15px] border border-[rgba(255,195,0,0.10)] bg-[rgba(255,255,255,0.10)] backdrop-blur-[5px] hover:bg-white transition-colors duration-200 cursor-pointer"
+        className="group w-6.25 h-6.25 shrink-0 flex items-center justify-center rounded-[15px] border border-[rgba(255,195,0,0.10)] bg-[rgba(30,30,30,0.95)] hover:bg-white transition-colors duration-200 cursor-pointer"
       >
-        <span className="transition-[filter] duration-200 group-hover:invert">
+        <span className="group-hover:invert">
           <CloseIcon />
         </span>
       </button>
 
-      <div className="flex flex-col items-center gap-1.25 px-3.75 py-4 rounded-[20px] border border-[rgba(255,195,0,0.07)] bg-[rgba(255,255,255,0.10)] backdrop-blur-[5px]">
+      <div className="flex flex-col items-center gap-1.25 px-3.75 py-4 rounded-[20px] border border-[rgba(255,195,0,0.07)] bg-[rgba(20,20,20,0.95)]">
         {socials.map(({ Icon, href, label }) => (
           <a
             key={label}
@@ -246,7 +246,7 @@ export function SocialFloat() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={label}
-            className="transition-[filter] duration-200 hover:invert cursor-pointer"
+            className="hover:opacity-70 transition-opacity duration-200 cursor-pointer"
           >
             <Icon />
           </a>
