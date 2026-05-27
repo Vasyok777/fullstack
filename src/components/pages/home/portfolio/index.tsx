@@ -7,7 +7,7 @@ const ITEMS = [
   {
     id: 1,
     image: "/portfolio/dressinupartatelier_1.png",
-    name: "DRESSING UP ART ATELIER",
+    name: "DRESSING UP",
     category: "Веб-розробка",
     href: "https://dressinupartatelier.com/",
   },
