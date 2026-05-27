@@ -131,17 +131,14 @@ export function QuizModal({ onClose }: Props) {
 
       {/* Modal card */}
       <div
-        className={`relative overflow-hidden border border-[rgba(212,175,55,0.55)] flex flex-col ${submitted ? "w-full max-w-116.5 p-12.5 items-center gap-5" : "w-full max-w-177.5 p-7.5 md:p-12.5 items-end gap-10"}`}
+        className={`relative overflow-hidden border border-[rgba(212,175,55,0.55)] bg-[#0c0c0c] flex flex-col ${submitted ? "w-full max-w-116.5 p-12.5 items-center gap-5" : "w-full max-w-177.5 p-7.5 md:p-12.5 items-end gap-10"}`}
         onClick={(e) => e.stopPropagation()}
       >
-        <video
-          className="absolute inset-0 w-full h-full object-cover grayscale pointer-events-none"
-          src="/modal-video.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
+        <img
+          src="/modal_bg.jpg"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover grayscale pointer-events-none block"
+          aria-hidden
         />
         {/* Close */}
         <button
