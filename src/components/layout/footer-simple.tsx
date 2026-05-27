@@ -40,17 +40,14 @@ export async function FooterSimple() {
             />
           </Link>
           <div className="flex items-center gap-4 flex-wrap justify-center">
-            {SOCIALS.map(({ label, href, Icon }) => (
-              <a
+            {SOCIALS.map(({ label, Icon }) => (
+              <span
                 key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
                 aria-label={label}
-                className="text-white hover:text-[#D4AF37] transition-colors duration-200"
+                className="text-white hover:text-[#D4AF37] transition-colors duration-200 cursor-default"
               >
                 <Icon />
-              </a>
+              </span>
             ))}
           </div>
           <div className="w-full border-t border-white/10 pt-4.5">
@@ -63,17 +60,14 @@ export async function FooterSimple() {
         {/* Desktop */}
         <div className="hidden md:grid grid-cols-3 items-center py-20">
           <div className="flex items-center gap-4 lg:gap-5">
-            {SOCIALS.map(({ label, href, Icon }) => (
-              <a
+            {SOCIALS.map(({ label, Icon }) => (
+              <span
                 key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
                 aria-label={label}
-                className="text-white hover:text-[#D4AF37] transition-colors duration-200"
+                className="text-white hover:text-[#D4AF37] transition-colors duration-200 cursor-default"
               >
                 <Icon />
-              </a>
+              </span>
             ))}
           </div>
 

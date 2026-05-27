@@ -47,11 +47,11 @@ function PortfolioCard({
         className="object-cover transition-transform duration-500 group-hover:scale-105 grayscale"
       />
 
-      {/* full-cover link */}
-      <a href={item.href} className="absolute inset-0 z-0 no-underline leading-[0]" aria-label={item.name} />
+      {/* full-cover link — z-20 so it sits above the image (z-10) */}
+      <a href={item.href} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-20 no-underline leading-0" aria-label={item.name} />
 
       {/* hover overlay — inset 10px from card edges */}
-      <div className="absolute inset-2.5 z-10 flex flex-col justify-end items-start gap-16.75 p-6 [background:rgba(12,12,12,0.10)] backdrop-blur-[12.5px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+      <div className="absolute inset-2.5 z-30 flex flex-col justify-end items-start gap-16.75 p-6 [background:rgba(12,12,12,0.10)] backdrop-blur-[12.5px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
         {/* title + category group */}
         <div className="flex flex-col items-start">
           <h3 className="font-display text-[#D4AF37] text-[30px] uppercase leading-none mb-2.5">
