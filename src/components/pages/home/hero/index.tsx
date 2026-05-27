@@ -30,10 +30,11 @@ export async function Hero() {
             <div className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-32.25 h-32.25 md:w-71 md:h-71 rounded-full bg-[#D4AF37] blur-[85px] md:blur-[188px] pointer-events-none select-none z-0" />
 
             <Image
-              src="/home/hero.svg"
+              src="/home/hero.webp"
               alt="Hero"
               fill
               priority
+              unoptimized
               className="object-contain z-10"
             />
             <div className="absolute left-[0%] top-[22%] -translate-y-1/2 z-20">

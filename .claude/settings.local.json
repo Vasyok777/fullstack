@@ -31,7 +31,9 @@
       "Bash(python -c ' *)",
       "Bash(find \"C:\\\\Users\\\\Vasyok\\\\Downloads\\\\Telegram Desktop\\\\client\" -name \"*.tsx\" 2>/dev/null | head -30)",
       "Read(//c/Users/Vasyok/Downloads/Telegram Desktop/client/**)",
-      "Bash(xargs grep -l -i \"client\\\\|map\\\\|offer\")"
+      "Bash(xargs grep -l -i \"client\\\\|map\\\\|offer\")",
+      "Bash(ls \"C:/Users/Vasyok/Downloads/Telegram Desktop/\")",
+      "Read(//c/Users/Vasyok/Downloads/Telegram Desktop/**)"
     ],
     "additionalDirectories": [
       "c:\\Users\\Vasyok\\OneDrive\\Desktop\\project\\fullstack\\src\\app",

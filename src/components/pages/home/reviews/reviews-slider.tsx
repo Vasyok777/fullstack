@@ -20,6 +20,7 @@ const REVIEWS: Review[] = [
   {
     id: 1,
     src: "/reviews/1.mp4",
+    poster: "/reviews/poster1.jpg",
     name: "Mark",
     role: "Business owner",
     rating: 5.0,
@@ -27,6 +28,7 @@ const REVIEWS: Review[] = [
   {
     id: 2,
     src: "/reviews/2.mp4",
+    poster: "/reviews/poster2.png",
     name: "Anneris",
     role: "Business owner",
     rating: 5.0,
@@ -34,6 +36,7 @@ const REVIEWS: Review[] = [
   {
     id: 3,
     src: "/reviews/3.mp4",
+    poster: "/reviews/poster3.png",
     name: "Max Orlov",
     role: "Software Engineer",
     rating: 5.0,
