@@ -41,7 +41,7 @@ export function ServiceItem({ title, desc, terms, price, prefillMsg }: ServiceIt
         {price}
       </span>
 
-      <div className="absolute top-0 right-0 w-10 h-10 md:w-12 md:h-12 lg:w-15 lg:h-15 p-2.9 flex items-center justify-center transition-all duration-300 group-hover:translate-y-2.5 group-hover:-translate-x-2.5 group-hover:[outline:1px_solid_rgba(212,175,55,0.70)] group-hover:outline-offset-[6px] md:group-hover:outline-offset-10 [background:var(--gradient-gold)]">
+      <div className="absolute top-0 right-0 w-10 h-10 md:w-12 md:h-12 lg:w-15 lg:h-15 p-2.9 flex items-center justify-center transition-[transform,outline-offset] duration-300 group-hover:translate-y-2.5 group-hover:-translate-x-2.5 group-hover:[outline:1px_solid_rgba(212,175,55,0.70)] group-hover:outline-offset-[6px] md:group-hover:outline-offset-10 [background:var(--gradient-gold)]">
         <ArrowDiagonalIcon />
       </div>
     </a>

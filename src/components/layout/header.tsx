@@ -108,7 +108,7 @@ export function Header() {
 
   return (
     <>
-      <header className={cn("fixed top-0 left-0 right-0 z-50 transition-[backdrop-filter,background-color] duration-300", scrolled && "backdrop-blur-md bg-background/70")}>
+      <header className={cn("fixed top-0 left-0 right-0 z-50 transition-colors duration-300", scrolled && "backdrop-blur-md bg-background/70")}>
         <Container className="max-w-370 h-18 lg:h-23 flex items-center justify-between gap-4">
           {/* Logo */}
           <a href={locale === "ua" ? "/" : `/${locale}`} className="shrink-0">

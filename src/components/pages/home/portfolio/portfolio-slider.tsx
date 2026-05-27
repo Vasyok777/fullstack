@@ -51,7 +51,7 @@ function PortfolioCard({
       <a href={item.href} className="absolute inset-0 z-0" aria-label={item.name} />
 
       {/* hover overlay — inset 10px from card edges */}
-      <div className="absolute inset-2.5 z-10 flex flex-col justify-end items-start gap-16.75 p-6 [background:rgba(12,12,12,0)] group-hover:[background:rgba(12,12,12,0.10)] [backdrop-filter:none] group-hover:[backdrop-filter:blur(12.5px)] opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+      <div className="absolute inset-2.5 z-10 flex flex-col justify-end items-start gap-16.75 p-6 [background:rgba(12,12,12,0.10)] backdrop-blur-[12.5px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
         {/* title + category group */}
         <div className="flex flex-col items-start">
           <h3 className="font-display text-[#D4AF37] text-[30px] uppercase leading-none mb-2.5">
@@ -63,7 +63,7 @@ function PortfolioCard({
         </div>
 
         {/* visit site button */}
-        <a href={item.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-4 h-12.5 px-6 [background:var(--gradient-gold)] text-[#0c0c0c] font-sans font-semibold text-[14px] leading-normal whitespace-nowrap shrink-0 border border-transparent transition-all duration-300 hover:[background:none] hover:border-white hover:text-white pointer-events-auto">
+        <a href={item.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-4 h-12.5 px-6 [background:var(--gradient-gold)] text-[#0c0c0c] font-sans font-semibold text-[14px] leading-normal whitespace-nowrap shrink-0 border border-transparent transition-colors duration-300 hover:[background:none] hover:border-white hover:text-white pointer-events-auto">
           {visitSiteLabel}
           <svg
             xmlns="http://www.w3.org/2000/svg"
