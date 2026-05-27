@@ -82,16 +82,13 @@ export async function Footer() {
           {/* Social icons */}
           <div className="flex items-center gap-5 md:gap-6">
             {SOCIALS.map((s) => (
-              <a
+              <span
                 key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
                 aria-label={s.label}
-                className="text-white/50 hover:text-white transition-colors duration-200"
+                className="text-white/50 hover:text-white transition-colors duration-200 cursor-default"
               >
                 {s.icon}
-              </a>
+              </span>
             ))}
           </div>
         </div>

@@ -48,7 +48,7 @@ function PortfolioCard({
       />
 
       {/* full-cover link */}
-      <a href={item.href} className="absolute inset-0 z-0" aria-label={item.name} />
+      <a href={item.href} className="absolute inset-0 z-0 no-underline leading-[0]" aria-label={item.name} />
 
       {/* hover overlay — inset 10px from card edges */}
       <div className="absolute inset-2.5 z-10 flex flex-col justify-end items-start gap-16.75 p-6 [background:rgba(12,12,12,0.10)] backdrop-blur-[12.5px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
