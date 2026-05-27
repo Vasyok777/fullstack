@@ -58,7 +58,7 @@ export async function FooterSimple() {
         </div>
 
         {/* Desktop */}
-        <div className="hidden md:grid grid-cols-3 items-center py-3.5">
+        <div className="hidden md:grid grid-cols-3 items-center py-14">
           <div className="flex items-center gap-4 lg:gap-5">
             {SOCIALS.map(({ label, Icon }) => (
               <span
