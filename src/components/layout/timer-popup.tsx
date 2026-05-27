@@ -92,17 +92,17 @@ export function TimerPopup() {
     localStorage.setItem("quiz_dismissed", String(Date.now()));
   }
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (sessionStorage.getItem("quiz_opened")) return;
-      const dismissed = localStorage.getItem("quiz_dismissed");
-      if (dismissed && Date.now() - Number(dismissed) < WEEK_MS) return;
-      const submitted = localStorage.getItem("quiz_submitted");
-      if (submitted && Date.now() - Number(submitted) < WEEK_MS) return;
-      setOpen(true);
-    }, 35000);
-    return () => clearTimeout(timer);
-  }, []);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     if (sessionStorage.getItem("quiz_opened")) return;
+  //     const dismissed = localStorage.getItem("quiz_dismissed");
+  //     if (dismissed && Date.now() - Number(dismissed) < WEEK_MS) return;
+  //     const submitted = localStorage.getItem("quiz_submitted");
+  //     if (submitted && Date.now() - Number(submitted) < WEEK_MS) return;
+  //     setOpen(true);
+  //   }, 35000);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -176,21 +176,18 @@ export function TimerPopup() {
       onClick={dismiss}
     >
       <div
-        className={`relative overflow-hidden border border-[rgba(212,175,55,0.55)] flex flex-col ${
+        className={`relative overflow-hidden border border-[rgba(212,175,55,0.55)] bg-[#0c0c0c] flex flex-col ${
           submitted
             ? "w-full max-w-116.5 p-12.5 items-center gap-5"
             : "w-full max-w-177.5 p-7.5 md:p-12.5 items-end gap-10"
         }`}
         onClick={(e) => e.stopPropagation()}
       >
-        <video
-          className="absolute inset-0 w-full h-full object-cover grayscale pointer-events-none"
-          src="/modal-video.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
+        <img
+          src="/modal_bg.jpg"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover grayscale pointer-events-none block"
+          aria-hidden
         />
 
         <button
