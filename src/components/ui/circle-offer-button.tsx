@@ -9,7 +9,7 @@ export function CircleOfferButton({ href, label }: Props) {
       href={href}
       className="group inline-flex w-20 h-20 md:w-auto md:h-auto p-[4.54px] md:p-2.5 rounded-full border border-[rgba(212,175,55,0.50)]"
     >
-      <div className="flex w-full h-full md:w-30 md:h-30 md:p-5 flex-col justify-center items-center gap-[4.54px] md:gap-1.25 rounded-full border border-[#D4AF37] bg-transparent group-hover:bg-[rgba(212,175,55,0.20)] transition-colors duration-300">
+      <div className="flex w-full h-full md:w-30 md:h-30 md:p-5 flex-col justify-center items-center gap-[4.54px] md:gap-1.25 rounded-full border border-[#D4AF37] bg-transparent group-hover:bg-[rgba(212,175,55,0.20)] transition-[background-color] duration-300 will-change-[background-color]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
