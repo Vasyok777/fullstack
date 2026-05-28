@@ -71,6 +71,7 @@ export function QuizModal({ onClose }: Props) {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [phoneError, setPhoneError] = useState(false);
+  const [formStarted, setFormStarted] = useState(false);
 
   const stepQuestion: Record<number, string> = {
     1: t("s1q"),
@@ -90,6 +91,20 @@ export function QuizModal({ onClose }: Props) {
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
+
+  function pushDataLayer(event: string) {
+    if (typeof window !== "undefined") {
+      ((window as any).dataLayer = (window as any).dataLayer || []).push({ event });
+    }
+  }
+
+  function handleSelect(opt: string) {
+    if (!formStarted) {
+      setFormStarted(true);
+      pushDataLayer("form_start");
+    }
+    setSelected(opt);
+  }
 
   function goForward() {
     if (step < TOTAL_STEPS) {
@@ -113,6 +128,7 @@ export function QuizModal({ onClose }: Props) {
       return;
     }
     setSubmitted(true);
+    pushDataLayer("form_submit");
     await fetch("/api/quiz", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -239,7 +255,7 @@ export function QuizModal({ onClose }: Props) {
                 key={opt}
                 label={opt}
                 checked={selected === opt}
-                onChange={() => setSelected(opt)}
+                onChange={() => handleSelect(opt)}
               />
             ))}
           </div>
