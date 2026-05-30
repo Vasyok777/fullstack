@@ -22,7 +22,7 @@ const REVIEWS: Review[] = [
     src: "/reviews/1.mp4",
     poster: "/reviews/poster1.jpg",
     name: "Mark",
-    role: "Business owner",
+    role: "Business Owner",
     rating: 5.0,
   },
   {
@@ -30,7 +30,7 @@ const REVIEWS: Review[] = [
     src: "/reviews/2.mp4",
     poster: "/reviews/poster2.png",
     name: "Anneris",
-    role: "Business owner",
+    role: "Business Owner",
     rating: 5.0,
   },
   {
@@ -118,7 +118,9 @@ function ReviewCard({ id, src, poster, name, role, rating, inactive }: Review) {
   const [hovered, setHovered] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [videoReady, setVideoReady] = useState(!!poster);
-  const [preload, setPreload] = useState<"none" | "auto">(poster ? "none" : "none");
+  const [preload, setPreload] = useState<"none" | "auto">(
+    poster ? "none" : "none",
+  );
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -131,7 +133,7 @@ function ReviewCard({ id, src, poster, name, role, rating, inactive }: Review) {
           obs.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -151,7 +153,11 @@ function ReviewCard({ id, src, poster, name, role, rating, inactive }: Review) {
   return (
     <div
       className="relative h-52.75 md:h-77.5 overflow-hidden bg-black"
-      onMouseEnter={() => !inactive && window.matchMedia("(hover:hover) and (pointer:fine)").matches && setHovered(true)}
+      onMouseEnter={() =>
+        !inactive &&
+        window.matchMedia("(hover:hover) and (pointer:fine)").matches &&
+        setHovered(true)
+      }
       onMouseLeave={() => setHovered(false)}
     >
       <video
@@ -185,16 +191,20 @@ function ReviewCard({ id, src, poster, name, role, rating, inactive }: Review) {
             </div>
           )}
           <div>
-            <p className={cn(
-              "font-display uppercase leading-none! text-[16px] md:text-[22px] font-normal mb-0.5",
-              inactive ? "text-[#D4AF37]/40" : "text-[#D4AF37]",
-            )}>
+            <p
+              className={cn(
+                "font-display uppercase leading-none! text-[16px] md:text-[22px] font-normal mb-0.5",
+                inactive ? "text-[#D4AF37]/40" : "text-[#D4AF37]",
+              )}
+            >
               {name}
             </p>
-            <p className={cn(
-              "font-sans font-medium leading-[130%] text-[12px] md:text-[14px]",
-              inactive ? "text-[#D9D9D9]/40" : "text-[#D9D9D9]",
-            )}>
+            <p
+              className={cn(
+                "font-sans font-medium leading-[130%] text-[12px] md:text-[14px]",
+                inactive ? "text-[#D9D9D9]/40" : "text-[#D9D9D9]",
+              )}
+            >
               {role}
             </p>
           </div>

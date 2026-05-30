@@ -37,7 +37,8 @@
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
       "Bash(git push *)",
-      "Bash(xargs grep -l \"gift\\\\|Gift\\\\|подарун\")"
+      "Bash(xargs grep -l \"gift\\\\|Gift\\\\|подарун\")",
+      "Bash(ssh root@31.131.27.102)"
     ],
     "additionalDirectories": [
       "c:\\Users\\Vasyok\\OneDrive\\Desktop\\project\\fullstack\\src\\app",

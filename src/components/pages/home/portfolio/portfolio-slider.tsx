@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 
@@ -93,10 +93,12 @@ export function PortfolioSlider({
   items: PortfolioItem[];
   visitSiteLabel: string;
 }) {
+  const swiperRef = useRef<SwiperType | null>(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
 
   function handleSwiper(swiper: SwiperType) {
+    swiperRef.current = swiper;
     setIsBeginning(swiper.isBeginning);
     setIsEnd(swiper.isEnd);
   }
@@ -110,9 +112,8 @@ export function PortfolioSlider({
     <div>
       <div className="relative">
         <Swiper
-          modules={[Pagination, Navigation]}
+          modules={[Pagination]}
           loop={false}
-          navigation={{ prevEl: ".portfolio-prev", nextEl: ".portfolio-next" }}
           pagination={{ clickable: true, el: ".portfolio-dots" }}
           spaceBetween={16}
           slidesPerView={1}
@@ -132,7 +133,8 @@ export function PortfolioSlider({
 
         {!isBeginning && (
           <button
-            className="portfolio-prev hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 p-2 rounded-[100px] bg-[rgba(65,65,65,0.20)] backdrop-blur-[20px] items-center justify-center cursor-pointer"
+            onClick={() => swiperRef.current?.slidePrev()}
+            className="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 p-2 rounded-[100px] bg-[rgba(65,65,65,0.20)] backdrop-blur-[20px] items-center justify-center cursor-pointer hover:bg-[rgba(65,65,65,0.55)] hover:shadow-[0_0_14px_rgba(212,175,55,0.35)] transition-all duration-200"
             aria-label="Previous"
           >
             <ChevronLeft />
@@ -140,7 +142,8 @@ export function PortfolioSlider({
         )}
         {!isEnd && (
           <button
-            className="portfolio-next hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 p-2 rounded-[100px] bg-[rgba(65,65,65,0.20)] backdrop-blur-[20px] items-center justify-center cursor-pointer"
+            onClick={() => swiperRef.current?.slideNext()}
+            className="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 p-2 rounded-[100px] bg-[rgba(65,65,65,0.20)] backdrop-blur-[20px] items-center justify-center cursor-pointer hover:bg-[rgba(65,65,65,0.55)] hover:shadow-[0_0_14px_rgba(212,175,55,0.35)] transition-all duration-200"
             aria-label="Next"
           >
             <ChevronRight />

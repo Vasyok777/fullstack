@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Prevent iOS/Android auto-zoom on input focus */
+@media (max-width: 767px) {
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+}
+
 :root {
   --background: #0c0c0c;
   --foreground: oklch(0.145 0 0);
@@ -115,19 +122,19 @@
     opacity: 1;
   }
 
-  /* White solid variant — default state for submit button */
+  /* White outline variant — default state for submit button when form not filled */
   .cta-btn.cta-btn-white {
-    background: #ffffff;
-    background-image: none;
-    border-color: #ffffff;
-    color: #0c0c0c;
-    box-shadow: none;
-  }
-  .cta-btn.cta-btn-white:hover {
     background: transparent;
     background-image: none;
     border-color: #ffffff;
     color: #ffffff;
+    box-shadow: none;
+  }
+  .cta-btn.cta-btn-white:hover {
+    background: #ffffff;
+    background-image: none;
+    border-color: #ffffff;
+    color: #0c0c0c;
     box-shadow: none;
   }
 

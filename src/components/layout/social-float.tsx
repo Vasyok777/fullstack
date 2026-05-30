@@ -29,7 +29,7 @@ function TelegramIcon() {
       xmlns="http://www.w3.org/2000/svg"
       width="28"
       height="28"
-      viewBox="0 0 28 28"
+      viewBox="-1 -1 30 30"
       fill="none"
     >
       <g clipPath="url(#sf-tg-clip)">
@@ -46,7 +46,7 @@ function TelegramIcon() {
       </g>
       <defs>
         <clipPath id="sf-tg-clip">
-          <rect width="28" height="28" fill="white" />
+          <rect x="-1" y="-1" width="30" height="30" fill="white" />
         </clipPath>
       </defs>
     </svg>
@@ -59,7 +59,7 @@ function ViberIcon() {
       xmlns="http://www.w3.org/2000/svg"
       width="28"
       height="28"
-      viewBox="0 0 28 28"
+      viewBox="-1 -1 30 30"
       fill="none"
     >
       <g clipPath="url(#sf-viber-clip)">
@@ -92,7 +92,7 @@ function ViberIcon() {
       </g>
       <defs>
         <clipPath id="sf-viber-clip">
-          <rect width="28" height="28" fill="white" />
+          <rect x="-1" y="-1" width="30" height="30" fill="white" />
         </clipPath>
       </defs>
     </svg>
@@ -105,7 +105,7 @@ function WhatsAppIcon() {
       xmlns="http://www.w3.org/2000/svg"
       width="28"
       height="28"
-      viewBox="0 0 28 28"
+      viewBox="-1 -1 30 30"
       fill="none"
     >
       <g clipPath="url(#sf-wa-clip)">
@@ -124,7 +124,7 @@ function WhatsAppIcon() {
       </g>
       <defs>
         <clipPath id="sf-wa-clip">
-          <rect width="28" height="28" fill="white" />
+          <rect x="-1" y="-1" width="30" height="30" fill="white" />
         </clipPath>
       </defs>
     </svg>
@@ -181,9 +181,11 @@ export function SocialFloat() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={label}
-            className="hover:opacity-70 transition-opacity duration-200 cursor-pointer"
+            className="group cursor-pointer"
           >
-            <Icon />
+            <span className="block group-hover:invert transition-[filter] duration-200">
+              <Icon />
+            </span>
           </a>
         ))}
       </div>

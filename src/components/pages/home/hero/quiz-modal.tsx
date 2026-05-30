@@ -54,7 +54,7 @@ function UnderlineInput({
       placeholder={placeholder}
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className="self-stretch bg-transparent border-b border-white/30 text-white font-sans text-[15px] font-light placeholder:text-white/40 outline-none py-2"
+      className="self-stretch bg-transparent border-b border-white/50 text-white font-sans text-[15px] font-light placeholder:text-white/65 outline-none py-2"
     />
   );
 }

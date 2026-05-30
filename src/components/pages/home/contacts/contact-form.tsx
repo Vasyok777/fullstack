@@ -401,7 +401,7 @@ export function ContactForm({ t }: { t: T }) {
 
       {/* Name + Email row */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 mb-6">
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col">
           <label
             className={cn(
               "font-sans text-[13px]",
@@ -429,7 +429,7 @@ export function ContactForm({ t }: { t: T }) {
           )}
         </div>
 
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col">
           <label
             className={cn(
               "font-sans text-[13px]",
@@ -459,7 +459,7 @@ export function ContactForm({ t }: { t: T }) {
       </div>
 
       {/* Phone */}
-      <div className="flex flex-col gap-1 mb-6">
+      <div className="flex flex-col mb-6">
         <label
           className={cn(
             "font-sans text-[13px]",
@@ -488,7 +488,7 @@ export function ContactForm({ t }: { t: T }) {
       </div>
 
       {/* Message */}
-      <div className="flex flex-col gap-1 mb-8">
+      <div className="flex flex-col mb-8">
         <label className="font-sans text-[13px] text-white/55">
           {t.messageLabel}
         </label>
@@ -496,12 +496,12 @@ export function ContactForm({ t }: { t: T }) {
           rows={2}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="bg-transparent outline-none w-full text-white font-sans text-[14px] h-7.5 border-b border-white/25 resize-none"
+          className="bg-transparent outline-none w-full text-white font-sans text-[14px] min-h-15 field-sizing-content border-b border-white/25 resize-none"
         />
       </div>
 
       {/* Privacy */}
-      <div className="flex flex-col gap-1 mb-8">
+      <div className="flex flex-col mb-8">
         <div className="flex items-center gap-2">
           <button
             type="button"
